@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+  <id>com.appcelerator.sample.ti500</id>
+  <name>appc-sample-ti500</name>
+  <version>1.0</version>
+  <publisher>not specified</publisher>
+  <url>unspecified</url>
+  <description/>
+  <copyright>not specified</copyright>
+  <icon>appicon.png</icon>
+  <fullscreen>false</fullscreen>
+  <navbar-hidden>false</navbar-hidden>
+  <analytics>true</analytics>
+  <guid>8bc52265-1ee8-45cc-9000-56b476b7196a</guid>
+  <property name="ti.ui.defaultunit" type="string">dp</property>
+  <ios>
+
+    <!-- Optional: Defaults to 7.1 without or 9.0 with an extension -->
+    <min-ios-ver>9.0</min-ios-ver>
+
+    <plist>
+      <dict>
+
+        <!-- Optional: Defaults to <version> and extensions will be default to that of the app -->
+        <key>CFBundleVersion</key>
+        <string>1</string>
+
+        <key>UISupportedInterfaceOrientations~iphone</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+        </array>
+        <key>UISupportedInterfaceOrientations~ipad</key>
+        <array>
+          <string>UIInterfaceOrientationPortrait</string>
+          <string>UIInterfaceOrientationPortraitUpsideDown</string>
+          <string>UIInterfaceOrientationLandscapeLeft</string>
+          <string>UIInterfaceOrientationLandscapeRight</string>
+        </array>
+        <key>UIRequiresPersistentWiFi</key>
+        <false/>
+        <key>UIPrerenderedIcon</key>
+        <false/>
+        <key>UIStatusBarHidden</key>
+        <false/>
+        <key>UIStatusBarStyle</key>
+        <string>UIStatusBarStyleDefault</string>
+      </dict>
+    </plist>
+    <extensions>
+      <extension projectPath="extensions/appc-sample-ti500/appc-sample-ti500.xcodeproj">
+        <target name="appc-sample-ti500 WatchApp Extension">
+          <provisioning-profiles>
+            <device/>
+            <dist-appstore/>
+            <dist-adhoc/>
+          </provisioning-profiles>
+        </target>
+        <target name="appc-sample-ti500 WatchApp">
+          <provisioning-profiles>
+            <device/>
+            <dist-appstore/>
+            <dist-adhoc/>
+          </provisioning-profiles>
+        </target>
+      </extension>
+    </extensions>
+  </ios>
+  <android xmlns:android="http://schemas.android.com/apk/res/android">
+  </android>
+  <mobileweb>
+    <precache/>
+    <splash>
+      <enabled>true</enabled>
+      <inline-css-images>true</inline-css-images>
+    </splash>
+    <theme>default</theme>
+  </mobileweb>
+  <modules/>
+  <deployment-targets>
+    <target device="android">true</target>
+    <target device="ipad">true</target>
+    <target device="iphone">true</target>
+    <target device="mobileweb">true</target>
+    <target device="windows">true</target>
+  </deployment-targets>
+  <sdk-version>5.0.0.v20150825212831</sdk-version>
+  <plugins>
+    <plugin version="1.0">ti.alloy</plugin>
+  </plugins>
+  <property name="appc-app-id" type="string">55dd89c30e638dfb41783a88</property>
+</ti:app>
