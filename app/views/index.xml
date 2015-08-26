@@ -1,5 +1,5 @@
 <Alloy>
-	<Window class="container">
-		<Label id="label" onClick="doClick">Hello, World</Label>
-	</Window>
+	<TabGroup>
+		<Require src="watch" platform="ios" />
+	</TabGroup>
 </Alloy>

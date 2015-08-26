@@ -1,0 +1,29 @@
+<Alloy>
+	<Tab title="WatchSession">
+		<Window title="WatchSession" layout="vertical">
+
+			<RightNavButton>
+				<Button systemButton="REFRESH" onClick="updateProperties" />
+			</RightNavButton>
+
+			<Label class="label" onClick="updateProperty">isSupported</Label>
+			<Label class="value" id="isSupported">undefined</Label>
+
+			<Label class="label" onClick="updateProperty">isPaired</Label>
+			<Label class="value" id="isPaired">undefined</Label>
+
+			<Label class="label" onClick="updateProperty">isWatchAppInstalled</Label>
+			<Label class="value" id="isWatchAppInstalled">undefined</Label>
+
+			<Label class="label" onClick="updateProperty">isComplicationEnabled</Label>
+			<Label class="value" id="isComplicationEnabled">undefined</Label>
+
+			<Label class="label" onClick="updateProperty">isReachable</Label>
+			<Label class="value" id="isReachable">undefined</Label>
+
+			<Label class="label" onClick="updateProperty">recentAppContext</Label>
+			<Label class="value" id="recentAppContext">undefined</Label>
+
+		</Window>
+	</Tab>
+</Alloy>

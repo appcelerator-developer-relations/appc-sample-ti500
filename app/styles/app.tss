@@ -4,7 +4,7 @@ This is your global styles file. Selectors and rules you define
 here will be applied throughout your app. However, these rules
 have the lowest priority of any style settings.
 
-For more information, see the "Style Priorities" section of
+For more information, see the 'Style Priorities' section of
 http://docs.appcelerator.com/titanium/latest/#!/guide/Alloy_Styles_and_Themes
 
 For example, the following would apply to all labels, windows,
@@ -15,12 +15,29 @@ overrode the settings with other TSS, XML, or JS settings:
 	color: '#000' // all platforms except Android and Windows default to black
 }
 
-'Window': {
-	backgroundColor: '#fff' // white background instead of default transparent or black
-}
-
 'TextField[platform=android]': {
 	height: Ti.UI.SIZE
 }
 
 */
+
+'Window': {
+	backgroundColor: '#fff' // white background instead of default transparent or black
+}
+
+'Label': {
+	font: {
+		fontSize: 17
+	}
+}
+
+'.label': {
+	top: 10,
+	font: {
+		fontWeight: 'bold'
+	}
+}
+
+'.value': {
+	color: '#999'
+}
