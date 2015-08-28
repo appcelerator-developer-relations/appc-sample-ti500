@@ -7,9 +7,17 @@
 * Why is `isWatchAppInstalled` false when the app is there, can communicate and `isReachable` is true?
 * Should we have an example of `isComplicationEnabled`?
 * Why is `recentAppContext` empty even after sending (and receiving) an app context from the watch?
+* What does `activate()` do?
 
 ## TODO
 * Add check for OS-es and versions
+* Add complication to Watch App sample and demo transferCurrentComplication() 
+* Only include one app icon to generate others from
+* Add image to send from watch to Xcode
+* Update image to send from app in assets/iphone/images
+* Lots of buttons not working as expected yet
+* Get my hands om some new/changed APIs list
+* https://wiki.appcelerator.org/display/eng/Integrate+a+WatchKit+App+Built+in+Xcode
 
 ## Prerequisites
 

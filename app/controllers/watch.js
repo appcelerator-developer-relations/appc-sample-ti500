@@ -8,9 +8,9 @@
 
 function setupListeners() {
 
-	['watchSessionReceivedMessage', 'watchSessionReceivedUserInfo', 'watchSessionReceivedFile', 'watchSessionReceivedAppContext', 'watchStateChanged', 'watchReachabilityChanged', 'watchSessionFinishedFileTransfer', 'watchSessionFinishedUserInfoTransfer'].forEach(function(event) {
+	['watchSessionReceivedMessage', 'watchSessionReceivedUserInfo', 'watchSessionReceivedFile', 'watchSessionReceivedAppContext', 'watchStateChanged', 'watchReachabilityChanged', 'watchSessionFinishedFileTransfer', 'watchSessionFinishedUserInfoTransfer'].forEach(function (event) {
 
-		Ti.WatchSession.addEventListener(event, function(e) {
+		Ti.WatchSession.addEventListener(event, function (e) {
 
 			var eStr = JSON.stringify(e);
 
@@ -34,14 +34,14 @@ function setupListeners() {
 
 function updateProperties() {
 
-	['isSupported', 'isPaired', 'isWatchAppInstalled', 'isComplicationEnabled', 'isReachable', 'recentAppContext'].forEach(function(property) {
-		updateProperty(property);	
+	['isSupported', 'isPaired', 'isWatchAppInstalled', 'isComplicationEnabled', 'isReachable', 'recentAppContext'].forEach(function (property) {
+		updateProperty(property);
 	});
 
 }
 
 function updateProperty(property) {
-	
+
 	if (_.isObject(property)) {
 		property = property.source.text;
 	}
@@ -54,12 +54,72 @@ function updateProperty(property) {
 }
 
 function updateText(id, text) {
+
 	$[id].animate({
 		opacity: 0
+
 	}, function () {
+		$[id].text = text;
+
 		$[id].animate({
-			text: text,
 			opacity: 1
 		});
 	});
+}
+
+function cancelAllTransfers(e) {
+	Ti.WatchSession.cancelAllTransfers();
+}
+
+function cancelAllFileTransfers(e) {
+	Ti.WatchSession.cancelAllFileTransfers();
+}
+
+function cancelAllUserInfoTransfers(e) {
+	Ti.WatchSession.cancelAllUserInfoTransfers();
+}
+
+function sendMessage(e) {
+	Ti.WatchSession.sendMessage({
+		message: {
+			message: 'Hi',
+			from: 'app',
+			type: 'message'
+		}
+	});
+}
+
+function transferFile(e) {
+	Ti.WatchSession.transferFile({
+		fileURL: '/images/logo.png',
+		metaData: {
+			data: 'appcelerator logo'
+		}
+	});
+}
+
+function transferCurrentComplication(e) {
+	Ti.WatchSession.transferCurrentComplication({
+		// ?
+	});
+}
+
+function transferUserInfo(e) {
+	Ti.WatchSession.transferUserInfo({
+		userInfo: {
+			data: 'user info from app',
+			created: '2015'
+		}
+	});
+}
+
+function updateAppContext(e) {
+	//only the latest appContext is registered. Send 2 to test.
+	Ti.WatchSession.updateAppContext({
+		appContext: {
+			status: 'AppContext from app',
+			updates: 2
+		}
+	});
+
 }

@@ -39,5 +39,14 @@ overrode the settings with other TSS, XML, or JS settings:
 }
 
 '.value': {
+	font: {
+		fontFamily: 'CourierNewPSMT'
+	},
 	color: '#999'
+}
+
+'ScrollView': {
+	layout: 'vertical',
+	contentWidth: Ti.UI.FILE,
+	contentHeight: Ti.UI.SIZE
 }
