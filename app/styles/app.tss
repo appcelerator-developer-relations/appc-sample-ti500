@@ -25,7 +25,23 @@ overrode the settings with other TSS, XML, or JS settings:
 	backgroundColor: '#fff' // white background instead of default transparent or black
 }
 
+'Window[platform=ios]': {
+	barColor: Alloy.CFG.brandPrimary,
+	navTintColor: '#FFF',
+	translucent: false,
+	titleAttributes: {
+		color: '#FFF'
+	}
+}
+
 'Label': {
+	font: {
+		fontSize: 17
+	}
+}
+
+'Button': {
+	top: 10,
 	font: {
 		fontSize: 17
 	}
@@ -42,11 +58,15 @@ overrode the settings with other TSS, XML, or JS settings:
 	font: {
 		fontFamily: 'CourierNewPSMT'
 	},
-	color: '#999'
+	color: '#999',
+
+	// As soon as the text is long enough to make the (by default) centered
+	// Label as wide as it parent and text wraps to multiple lines, we need to
+	// center the text itself as well.
+	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
 }
 
 'ScrollView': {
-	layout: 'vertical',
 	contentWidth: Ti.UI.FILE,
 	contentHeight: Ti.UI.SIZE
 }

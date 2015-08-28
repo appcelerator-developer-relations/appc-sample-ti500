@@ -1,0 +1,8 @@
+'TabGroup': {
+	tabsBackgroundColor: 'white',
+	tabsTintColor: Alloy.CFG.brandPrimary
+}
+
+'Tab': {
+	icon: '/images/tabIcon.png'
+}

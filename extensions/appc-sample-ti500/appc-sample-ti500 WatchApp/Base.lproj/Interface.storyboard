@@ -11,33 +11,38 @@
                 <controller id="AgC-eL-Hgc" customClass="InterfaceController">
                     <items>
                         <imageView alignment="center" verticalAlignment="bottom" id="Kuf-f0-rzw"/>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Send AppCxt" id="YT4-Oy-aBn">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="sendMessage" id="8al-Pv-z3a">
+                            <fontDescription key="font" type="system" pointSize="14"/>
                             <connections>
-                                <action selector="sendAppContextButtonPressed:" destination="AgC-eL-Hgc" id="dtR-bf-yhW"/>
+                                <action selector="sendMessage:" destination="AgC-eL-Hgc" id="7SO-pF-1oW"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Send Msg" id="8al-Pv-z3a">
-                            <fontDescription key="font" type="system" pointSize="15"/>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="transferFile" id="6wZ-5M-MFw">
+                            <fontDescription key="font" type="system" pointSize="14"/>
                             <connections>
-                                <action selector="sendMsgButtonPressed:" destination="AgC-eL-Hgc" id="7SO-pF-1oW"/>
+                                <action selector="transferFile:" destination="AgC-eL-Hgc" id="e4V-XB-UMR"/>
                             </connections>
                         </button>
-                        <label width="1" alignment="center" text="Events here" textAlignment="justified" numberOfLines="6" id="LHM-6g-e2O"/>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Send User Info" id="NU6-xy-Z4C">
+                        <label width="1" alignment="center" text="Watch for Logs" textAlignment="center" numberOfLines="0" id="LHM-6g-e2O">
+                            <color key="textColor" red="1" green="1" blue="1" alpha="0.59999999999999998" colorSpace="calibratedRGB"/>
+                            <fontDescription key="font" style="UICTFontTextStyleSubhead"/>
+                        </label>
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="transferUserInfo" id="NU6-xy-Z4C">
+                            <fontDescription key="font" type="system" pointSize="14"/>
                             <connections>
-                                <action selector="sendUserInfoButtonPressed:" destination="AgC-eL-Hgc" id="hsS-rP-VCZ"/>
+                                <action selector="transferUserInfo:" destination="AgC-eL-Hgc" id="hsS-rP-VCZ"/>
                             </connections>
                         </button>
-                        <button width="1" alignment="center" verticalAlignment="bottom" title="Send File" id="6wZ-5M-MFw">
+                        <button width="1" alignment="center" verticalAlignment="bottom" title="updateApplication                             Context" id="YT4-Oy-aBn">
+                            <fontDescription key="font" type="system" pointSize="14"/>
                             <connections>
-                                <action selector="sendFileButtonPressed:" destination="AgC-eL-Hgc" id="e4V-XB-UMR"/>
+                                <action selector="updateApplicationContext:" destination="AgC-eL-Hgc" id="dtR-bf-yhW"/>
                             </connections>
                         </button>
-                        <separator alignment="left" id="h1v-l8-EM7"/>
                     </items>
                     <connections>
-                        <outlet property="titaniumImage" destination="Kuf-f0-rzw" id="Aql-cr-CBa"/>
-                        <outlet property="titaniumLabel" destination="LHM-6g-e2O" id="52m-Km-3K3"/>
+                        <outlet property="logImage" destination="Kuf-f0-rzw" id="Aql-cr-CBa"/>
+                        <outlet property="logText" destination="LHM-6g-e2O" id="52m-Km-3K3"/>
                     </connections>
                 </controller>
             </objects>

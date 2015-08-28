@@ -23,6 +23,7 @@
 }
 
 - (void)willActivate {
+    
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
     
@@ -38,89 +39,92 @@
         return;
     }
     
-    // Restore our state
-    if (backgroundSavedString != nil) {
-        _titaniumLabel.text = [NSString stringWithFormat:@"(background)%@",backgroundSavedString] ;
-    }
-    
-    if (imageData != nil) {
-        _titaniumLabel.text = [NSString stringWithFormat:@"(background)%@",backgroundSavedString] ;
-        [_titaniumImage setImageData:imageData];
-    }
+    // Restore our previous (or data received while in background)
+    [self showLog:lastLog withImage:lastImage andMode:@"restored"];
 }
 
 - (void)didDeactivate {
+    
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
 }
 
-// FOLLOWING CODE IS ADDED
+- (void)showLog:(NSString *)text withImage:(NSData *)data andMode:(NSString *)mode {
+    
+    if (text != nil) {
+        _logText.text = [NSString stringWithFormat:@"(%@) %@", mode, text];
+    }
+
+    [_logImage setImageData:data];
+    
+    lastLog = text;
+    lastImage = data;
+    
+    [self hideLog];
+}
+
+- (void)hideLog {
+    dispatch_time_t delay = dispatch_time(DISPATCH_TIME_NOW, NSEC_PER_SEC * 5);
+    dispatch_after(delay, dispatch_get_main_queue(), ^(void){
+        _logText.text = NULL;
+        [_logImage setImageData:NULL];
+    });
+}
 
 #pragma mark watch methods
--(IBAction)sendMsgButtonPressed:(id)sender
+-(IBAction)sendMessage:(id)sender
 {
-    [watchSession sendMessage:[NSDictionary dictionaryWithObjectsAndKeys:@"Hi from watch",@"message", nil] replyHandler:nil errorHandler:nil];
+    [watchSession sendMessage:[NSDictionary dictionaryWithObjectsAndKeys:@"bar",@"foo", nil] replyHandler:nil errorHandler:nil];
 }
 
--(IBAction)sendFileButtonPressed:(id)sender
+-(IBAction)transferFile:(id)sender
 {
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"thumbUp" withExtension:@"png"];
-    [watchSession transferFile:fileURL metadata:[NSDictionary dictionaryWithObjectsAndKeys:@"thumbup",@"data",nil]];
+    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"logo" withExtension:@"png"];
+    [watchSession transferFile:fileURL metadata:[NSDictionary dictionaryWithObjectsAndKeys:@"bar",@"foo",nil]];
 }
 
--(IBAction)sendAppContextButtonPressed:(id)sender
+-(IBAction)transferUserInfo:(id)sender
 {
-    //only latest appContext is registered.
-    [watchSession updateApplicationContext:[NSDictionary dictionaryWithObjectsAndKeys:@"App context from watch",@"status", nil] error:nil];
+    [watchSession transferUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"bar",@"foo", nil]];
 }
 
--(IBAction)sendUserInfoButtonPressed:(id)sender
+-(IBAction)updateApplicationContext:(id)sender
 {
-    [watchSession transferUserInfo:[NSDictionary dictionaryWithObjectsAndKeys:@"User Info from watch",@"data", nil]];
+    // Only latest appContext is registered.
+    [watchSession updateApplicationContext:[NSDictionary dictionaryWithObjectsAndKeys:@"bar",@"foo", nil] error:nil];
 }
 
 #pragma mark watch delegates
 - (void)session:(nonnull WCSession *)session didReceiveMessage:(nonnull NSDictionary<NSString *,id> *)message
 {
-    _titaniumLabel.text = [NSString stringWithFormat:@"Received Message: %@",[message objectForKey:@"message"]] ;
-    backgroundSavedString = nil;
+    [self showLog:[NSString stringWithFormat:@"didReceiveMessage %@", message] withImage:nil andMode:@"live"];
 }
 
 - (void)session:(nonnull WCSession *)session didReceiveUserInfo:(nonnull NSDictionary<NSString *,id> *)userInfo
 {
-    //if in foreground just change text immediately
-    _titaniumLabel.text = [NSString stringWithFormat:@"(foreground)Received User Info : %@",[userInfo objectForKey:@"data"]];
-    backgroundSavedString = [NSString stringWithFormat:@"Received User Info: %@",[userInfo objectForKey:@"data"]];
-    
+    [self showLog:[NSString stringWithFormat:@"didReceiveUserInfo %@", userInfo] withImage:nil andMode:@"live"];
 }
 
-- (void)session:(WCSession * _Nonnull)session didFinishUserInfoTransfer:(nonnull WCSessionUserInfoTransfer *)userInfoTransfer error:(nullable NSError *)error
+- (void)session:(nonnull WCSession *)session didFinishUserInfoTransfer:(nonnull WCSessionUserInfoTransfer *)userInfoTransfer error:(nullable NSError *)error
 {
-    _titaniumLabel.text = [NSString stringWithFormat:@"Finished sending User Info: %@",userInfoTransfer.description] ;
+    [self showLog:[NSString stringWithFormat:@"didFinishUserInfoTransfer %@", userInfoTransfer] withImage:nil andMode:@"live"];
 }
 
 - (void)session:(nonnull WCSession *)session didReceiveFile:(nonnull WCSessionFile *)file
 {
     NSURL *url = [file fileURL];
-    imageData = [NSData dataWithContentsOfURL:url];
-    [_titaniumImage setImageData:imageData];
-    _titaniumLabel.text = [NSString stringWithFormat:@"(foreground)Received image File : %@",file.description] ;
-    backgroundSavedString = [NSString stringWithFormat:@"Received image File: %@",file.description] ;
+    
+    [self showLog:[NSString stringWithFormat:@"didReceiveFile %@", file.description] withImage:[NSData dataWithContentsOfURL:url] andMode:@"live"];
 }
 
 - (void)session:(nonnull WCSession *)session didFinishFileTransfer:(nonnull WCSessionFileTransfer *)fileTransfer error:(nullable NSError *)error
 {
-    _titaniumLabel.text = [NSString stringWithFormat:@"Finished sending file: %@",fileTransfer.description] ;
+    [self showLog:[NSString stringWithFormat:@"didFinishFileTransfer %@", fileTransfer.description] withImage:nil andMode:@"live"];
 }
 
 - (void)session:(nonnull WCSession *)session didReceiveApplicationContext:(nonnull NSDictionary<NSString *,id> *)applicationContext
 {
-    _titaniumLabel.text = [NSString stringWithFormat:@"(foreground)Received App Context: %@",[applicationContext objectForKey:@"status"]] ;
-    backgroundSavedString = [NSString stringWithFormat:@"Received App Context: %@",[applicationContext objectForKey:@"status"]] ;
-    
+    [self showLog:[NSString stringWithFormat:@"didReceiveApplicationContext %@", applicationContext] withImage:nil andMode:@"live"];
 }
 
 @end
-
-
-

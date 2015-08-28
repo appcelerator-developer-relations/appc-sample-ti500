@@ -14,22 +14,21 @@
 
 // Add <WCSessionDelegate>
 @interface InterfaceController : WKInterfaceController <WCSessionDelegate> {
-    
-    // Added properties to restore our state when the Watch App activates
     WCSession *watchSession;
-    NSString *backgroundSavedString;
-    NSData *imageData;
+    
+    // Variables to persist our state
+    NSString *lastLog;
+    NSData *lastImage;
 }
 
-// Reference UI components to use in our logic
-@property (strong, nonatomic) IBOutlet WKInterfaceLabel *titaniumLabel;
-@property (strong, nonatomic) IBOutlet WKInterfaceButton *titaniumButton;
-@property (strong, nonatomic) IBOutlet WKInterfaceImage *titaniumImage;
+// UI outlets we use
+@property (strong, nonatomic) IBOutlet WKInterfaceLabel *logText;
+@property (strong, nonatomic) IBOutlet WKInterfaceImage *logImage;
 
-// Reference methods to execute when buttons are pressed
--(IBAction)sendMsgButtonPressed:(id)sender;
--(IBAction)sendUserInfoButtonPressed:(id)sender;
--(IBAction)sendFileButtonPressed:(id)sender;
--(IBAction)sendAppContextButtonPressed:(id)sender;
+// Public methods
+-(IBAction)sendMessage:(id)sender;
+-(IBAction)transferFile:(id)sender;
+-(IBAction)transferUserInfo:(id)sender;
+-(IBAction)updateApplicationContext:(id)sender;
 
 @end

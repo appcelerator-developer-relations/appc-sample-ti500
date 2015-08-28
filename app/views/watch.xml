@@ -1,49 +1,57 @@
 <Alloy>
-	<Tab title="WatchSession">
-		<Window title="WatchSession">
+	<Window title="WatchSession">
 
-			<RightNavButton>
-				<Button systemButton="REFRESH" onClick="updateProperties" />
-			</RightNavButton>
+		<RightNavButton>
+			<Button systemButton="REFRESH" onClick="showProperties" />
+		</RightNavButton>
 
-			<ScrollView>
+		<ScrollView layout="vertical">
 
-				<Label class="label" onClick="updateProperty">isSupported</Label>
-				<Label class="value" id="isSupported">undefined</Label>
+			<Label class="label" onClick="showProperty">isSupported</Label>
+			<Label class="value" id="isSupported">undefined</Label>
 
-				<Label class="label" onClick="updateProperty">isPaired</Label>
-				<Label class="value" id="isPaired">undefined</Label>
+			<Label class="label" onClick="showProperty">isPaired</Label>
+			<Label class="value" id="isPaired">undefined</Label>
 
-				<Label class="label" onClick="updateProperty">isWatchAppInstalled</Label>
-				<Label class="value" id="isWatchAppInstalled">undefined</Label>
+			<Label class="label" onClick="showProperty">isWatchAppInstalled</Label>
+			<Label class="value" id="isWatchAppInstalled">undefined</Label>
 
-				<Label class="label" onClick="updateProperty">isComplicationEnabled</Label>
-				<Label class="value" id="isComplicationEnabled">undefined</Label>
+			<Label class="label" onClick="showProperty">isComplicationEnabled</Label>
+			<Label class="value" id="isComplicationEnabled">undefined</Label>
 
-				<Label class="label" onClick="updateProperty">isReachable</Label>
-				<Label class="value" id="isReachable">undefined</Label>
+			<Label class="label" onClick="showProperty">isReachable</Label>
+			<Label class="value" id="isReachable">undefined</Label>
 
-				<Label class="label" onClick="updateProperty">recentAppContext</Label>
-				<Label class="value" id="recentAppContext">undefined</Label>
+			<Label class="label" onClick="showProperty">recentAppContext</Label>
+			<Label class="value" id="recentAppContext">undefined</Label>
 
-				<Button onClick="cancelAllTransfers">cancelAllTransfers</Button>
+			<Button onClick="sendMessage">sendMessage()</Button>
 
-				<Button onClick="cancelAllFileTransfers">cancelAllFileTransfers</Button>
+			<Button onClick="transferCurrentComplication">transferCurrentComplication()</Button>
 
-				<Button onClick="cancelAllUserInfoTransfers">cancelAllUserInfoTransfers</Button>
+			<Button onClick="transferFile">transferFile()</Button>
 
-				<Button onClick="sendMessage">sendMessage</Button>
+			<Button onClick="cancelAllFileTransfers">cancelAllFileTransfers()</Button>
 
-				<Button onClick="transferCurrentComplication">transferCurrentComplication</Button>
+			<Button onClick="transferUserInfo">transferUserInfo()</Button>
 
-				<Button onClick="transferFile">transferFile</Button>
+			<Button onClick="cancelAllUserInfoTransfers">cancelAllUserInfoTransfers()</Button>
 
-				<Button onClick="transferUserInfo">transferUserInfo</Button>
+			<Button onClick="cancelAllTransfers">cancelAllTransfers()</Button>
 
-				<Button onClick="updateAppContext">updateAppContext</Button>
+			<Button onClick="updateAppContext">updateAppContext()</Button>
 
-			</ScrollView>
-			
-		</Window>
-	</Tab>
+		</ScrollView>
+
+		<ScrollView id="logWrap" onClick="hideLog">
+
+			<Label id="logText" />
+
+			<View id="logImageWrap">
+				<ImageView id="logImage" />
+			</View>
+
+		</ScrollView>
+		
+	</Window>
 </Alloy>

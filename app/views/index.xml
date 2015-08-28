@@ -1,5 +1,7 @@
 <Alloy>
 	<TabGroup>
-		<Require src="watch" platform="ios" />
+		<Tab title="WatchSession">
+			<Require src="watch" platform="ios" />
+		</Tab>
 	</TabGroup>
 </Alloy>
