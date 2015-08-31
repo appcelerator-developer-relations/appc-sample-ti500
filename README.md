@@ -68,9 +68,8 @@ Remove the need to call Ti.WatchSession.activate()](https://jira.appcelerator.or
 Use name method/event names on Titanium and Watch side of session](https://jira.appcelerator.org/browse/TIMOB-19427)
 
 ## TODO
-* Hide log/image on Watch after 5s or tap
+* Document code, also Watch part
 * Test on device
-* Add check for OS-es and versions
 * Add complication to Watch App sample and demo transferCurrentComplication() 
 * Only include one app icon to generate others from
 * Get my hands om some new/changed APIs list

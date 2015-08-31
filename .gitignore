@@ -8,3 +8,5 @@ tmp
 .project
 .settings
 Thumbs.db
+extensions/appc-sample-ti500/appc-sample-ti500.xcodeproj/xcuserdata
+extensions/appc-sample-ti500/appc-sample-ti500.xcodeproj/project.xcworkspace
