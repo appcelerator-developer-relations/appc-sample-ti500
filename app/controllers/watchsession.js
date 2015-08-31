@@ -1,13 +1,11 @@
-/* global log */
-
-var timerId;
+var log = require('log');
 
 (function constructor(args) {
 
 	// Required to be able to receive events from the watch
 	// The session will also automatically activate when you
 	// call methods or properties on Ti.WatchSession (except for addEventListener that is)
-	Ti.WatchSession.activate();
+	Ti.WatchSession.activateSession();
 
 	setupListeners();
 
@@ -17,14 +15,20 @@ var timerId;
 
 function setupListeners() {
 
-	['watchSessionReceivedMessage', 'watchSessionReceivedUserInfo', 'watchSessionReceivedFile', 'watchSessionReceivedAppContext', 'watchStateChanged', 'watchReachabilityChanged', 'watchSessionFinishedFileTransfer', 'watchSessionFinishedUserInfoTransfer'].forEach(function (event) {
+	['receivemessage', 'receiveuserinfo', 'receivefile', 'receiveapplicationcontext', 'watchstatechanged', 'reachabilitychanged', 'finishfiletransfer', 'finishuserinfotransfer'].forEach(function (event) {
 
 		Ti.WatchSession.addEventListener(event, function (e) {
 
-			logEvent(e);
+			if (e.type === 'watchSessionReceivedFile') {
+				log.argsWithImage('Ti.WatchSession:' + e.type, e, e.data);
 
-			if (event.indexOf('Changed') !== -1) {
-				showProperties();
+			} else {
+
+				log.args('Ti.WatchSession:' + e.type, e);
+
+				if (event.indexOf('Changed') !== -1) {
+					showProperties();
+				}
 			}
 
 		});
@@ -34,7 +38,7 @@ function setupListeners() {
 
 function showProperties() {
 
-	['isSupported', 'isPaired', 'isWatchAppInstalled', 'isComplicationEnabled', 'isReachable', 'recentAppContext'].forEach(function (property) {
+	['isSupported', 'isPaired', 'isWatchAppInstalled', 'isComplicationEnabled', 'isReachable', 'recentApplicationContext'].forEach(function (property) {
 		showProperty(property);
 	});
 
@@ -48,7 +52,7 @@ function showProperty(property) {
 
 	var valStr = JSON.stringify(Ti.WatchSession[property]);
 
-	log('Ti.WatchSession.' + property, valStr);
+	log.args('Ti.WatchSession.' + property, valStr);
 
 	updateText(property, valStr);
 }
@@ -109,7 +113,7 @@ function transferUserInfo(e) {
 	Ti.WatchSession.transferUserInfo(createSamplePayload());
 }
 
-function updateAppContext(e) {
+function updateApplicationContext(e) {
 
 	/**
 	 * Sends an app context update to the apple watch. If watchapp is in
@@ -118,52 +122,10 @@ function updateAppContext(e) {
 	 * stored at any one time, subsequent updates will simply replace the
 	 * earlier one sent.
 	 */
-	Ti.WatchSession.updateAppContext(createSamplePayload());
+	Ti.WatchSession.updateApplicationContext(createSamplePayload());
 
 	// Ti.WatchSession.recentAppContext should now have the last sent context
-	showProperty('recentAppContext');
-}
-
-function logEvent(e) {
-
-	// If previous still shows, hide it here
-	hideLog();
-
-	$.logText.text = log('Ti.WatchSession:' + e.type, e);
-
-	if (e.type === 'watchSessionReceivedFile') {
-		$.logImage.image = e.data;
-
-		$.logImageWrap.show();
-
-	} else {
-		$.logImageWrap.hide();
-	}
-
-	// Scroll content back to top if it's not
-	$.logWrap.contentOffset = {
-		x: 0,
-		y: 0
-	};
-
-	// Fade in
-	$.logWrap.animate({
-		opacity: 1
-	});
-
-	// Hide after 5 seconds
-	timerId = setTimeout(hideLog, 5000);
-}
-
-function hideLog() {
-
-	// When cancelled manually, clear timer set to hide it autmatically
-	timerId && clearTimeout(timerId);
-
-	// Fade out
-	$.logWrap.animate({
-		opacity: 0
-	});
+	showProperty('recentApplicationContext');
 }
 
 function createSamplePayload() {

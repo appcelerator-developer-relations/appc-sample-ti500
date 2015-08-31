@@ -1,0 +1,26 @@
+<Alloy>
+	<Window title="WatchSession">
+
+		<LeftNavButton>
+			<Button onClick="createUserActivity">Replace</Button>
+		</LeftNavButton>
+		<RightNavButton>
+			<Button onClick="toggleCurrent">Become</Button>
+		</RightNavButton>
+
+		<ScrollView layout="vertical">
+			<Label class="label" onClick="toggleSwitch">eligibleForHandoff</Label>
+			<Switch id="eligibleForHandoff" value="true" />
+
+			<Label class="label" onClick="toggleSwitch">eligibleForPublicIndexing</Label>
+			<Switch id="eligibleForPublicIndexing" value="true" />
+
+			<Label class="label" onClick="toggleSwitch">eligibleForSearch</Label>
+			<Switch id="eligibleForSearch" value="true" />
+
+			<Label class="label" onClick="toggleSwitch">needsSave</Label>
+			<Switch id="needsSave" value="true" />
+		</ScrollView>
+
+	</Window>
+</Alloy>

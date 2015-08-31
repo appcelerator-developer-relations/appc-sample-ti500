@@ -25,6 +25,12 @@
         <key>CFBundleVersion</key>
         <string>1</string>
 
+        <!-- All UserActivities need to be defined here -->
+        <key>NSUserActivityTypes</key>
+        <array>
+          <string>com.appcelerator.sample.ti500.foo</string>
+        </array>
+
         <key>UISupportedInterfaceOrientations~iphone</key>
         <array>
           <string>UIInterfaceOrientationPortrait</string>
@@ -50,14 +56,14 @@
       <extension projectPath="extensions/appc-sample-ti500/appc-sample-ti500.xcodeproj">
         <target name="appc-sample-ti500 WatchApp Extension">
           <provisioning-profiles>
-            <device/>
+            <device>c9f13523-60d7-4985-b014-9ff52285b3c5</device>
             <dist-appstore/>
             <dist-adhoc/>
           </provisioning-profiles>
         </target>
         <target name="appc-sample-ti500 WatchApp">
           <provisioning-profiles>
-            <device/>
+            <device>c9f13523-60d7-4985-b014-9ff52285b3c5</device>
             <dist-appstore/>
             <dist-adhoc/>
           </provisioning-profiles>
@@ -83,7 +89,7 @@
     <target device="mobileweb">true</target>
     <target device="windows">true</target>
   </deployment-targets>
-  <sdk-version>5.0.0.v20150827202827</sdk-version>
+  <sdk-version>5.0.0.v20150829212027</sdk-version>
   <plugins>
     <plugin version="1.0">ti.alloy</plugin>
   </plugins>

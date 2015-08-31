@@ -1,0 +1,15 @@
+<Alloy>
+	<Window id="win" onClick="close">
+
+		<ScrollView id="wrap">
+
+			<Label id="message" />
+
+			<View id="imageWrap">
+				<ImageView id="image" />
+			</View>
+
+		</ScrollView>
+
+	</Window>
+</Alloy>

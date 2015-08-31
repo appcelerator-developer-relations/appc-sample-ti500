@@ -1,30 +1,9 @@
-'#logImageWrap': {
-	top: 10,
-	right: 10,
-
-	width: Ti.UI.SIZE,
-	height: Ti.UI.SIZE,
-
-	backgroundColor: '#FFF',
-	borderRadius: 5
+'Window': {
+	backgroundColor: 'transparent'
 }
 
-'#logImage': {
-	top: 10,
-	right: 10,
-	bottom: 10,
-	left: 10,
-
-	width: 75,
-
-	// Because we've set top and bottom it will take the full height of its
-	// parent unless we explicitly set height to the default Ti.UI.SIZE 
-	// which case top and bottom will determine the max height within parent.
-	height: Ti.UI.SIZE
-}
-
-'#logWrap': {
-	top: 25,
+'#wrap': {
+	top: 89,
 	right: 25,
 	bottom: 25,
 	left: 25,
@@ -34,13 +13,11 @@
 	// which case top and bottom will determine the max height within parent.
 	height: Ti.UI.SIZE,
 
-	opacity: 0,
-
 	backgroundColor: '#C000',
 	borderRadius: 5
 }
 
-'#logText': {
+'#message': {
 	top: 10,
 	right: 10,
 	bottom: 10,
@@ -56,4 +33,29 @@
 		fontSize: 15,
 		fontFamily: 'CourierNewPSMT'
 	}
+}
+
+'#imageWrap': {
+	top: 10,
+	right: 10,
+
+	width: Ti.UI.SIZE,
+	height: Ti.UI.SIZE,
+
+	backgroundColor: '#FFF',
+	borderRadius: 5
+}
+
+'#image': {
+	top: 10,
+	right: 10,
+	bottom: 10,
+	left: 10,
+
+	width: 75,
+
+	// Because we've set top and bottom it will take the full height of its
+	// parent unless we explicitly set height to the default Ti.UI.SIZE 
+	// which case top and bottom will determine the max height within parent.
+	height: Ti.UI.SIZE
 }

@@ -22,8 +22,8 @@
 			<Label class="label" onClick="showProperty">isReachable</Label>
 			<Label class="value" id="isReachable">undefined</Label>
 
-			<Label class="label" onClick="showProperty">recentAppContext</Label>
-			<Label class="value" id="recentAppContext">undefined</Label>
+			<Label class="label" onClick="showProperty">recentApplicationContext</Label>
+			<Label class="value" id="recentApplicationContext">undefined</Label>
 
 			<Button onClick="sendMessage">sendMessage()</Button>
 
@@ -39,17 +39,7 @@
 
 			<Button onClick="cancelAllTransfers">cancelAllTransfers()</Button>
 
-			<Button onClick="updateAppContext">updateAppContext()</Button>
-
-		</ScrollView>
-
-		<ScrollView id="logWrap" onClick="hideLog">
-
-			<Label id="logText" />
-
-			<View id="logImageWrap">
-				<ImageView id="logImage" />
-			</View>
+			<Button onClick="updateApplicationContext">updateApplicationContext()</Button>
 
 		</ScrollView>
 		

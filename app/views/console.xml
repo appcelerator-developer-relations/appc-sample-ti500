@@ -1,0 +1,11 @@
+<Alloy>
+	<Window title="Console">
+
+		<RightNavButton>
+			<Button onClick="clearHistory" systemButton="TRASH" />
+		</RightNavButton>
+
+		<TextArea id="log" />
+
+	</Window>
+</Alloy>
