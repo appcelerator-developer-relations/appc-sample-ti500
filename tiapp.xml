@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ti:app xmlns:ti="http://ti.appcelerator.org">
   <id>com.appcelerator.sample.ti500</id>
-  <name>appc-sample-ti500</name>
+  <name>Ti 5.0.0</name>
   <version>1.0</version>
   <publisher>not specified</publisher>
   <url>unspecified</url>
@@ -56,14 +56,14 @@
       <extension projectPath="extensions/appc-sample-ti500/appc-sample-ti500.xcodeproj">
         <target name="appc-sample-ti500 WatchApp Extension">
           <provisioning-profiles>
-            <device>c9f13523-60d7-4985-b014-9ff52285b3c5</device>
+            <device>fa04ed5e-a4db-4258-bbba-0fffb5ca0f84</device>
             <dist-appstore/>
             <dist-adhoc/>
           </provisioning-profiles>
         </target>
         <target name="appc-sample-ti500 WatchApp">
           <provisioning-profiles>
-            <device>c9f13523-60d7-4985-b014-9ff52285b3c5</device>
+            <device>fa04ed5e-a4db-4258-bbba-0fffb5ca0f84</device>
             <dist-appstore/>
             <dist-adhoc/>
           </provisioning-profiles>
@@ -89,7 +89,7 @@
     <target device="mobileweb">true</target>
     <target device="windows">true</target>
   </deployment-targets>
-  <sdk-version>5.0.0.v20150829212027</sdk-version>
+  <sdk-version>5.0.0.v20150831120637</sdk-version>
   <plugins>
     <plugin version="1.0">ti.alloy</plugin>
   </plugins>

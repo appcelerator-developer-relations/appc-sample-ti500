@@ -27,6 +27,9 @@ There's only a few files of the generated template that I've touched for this sa
 
 In the Titanium app we'll use `Ti.WatchSession`.
 
+#### Changing Watch App name
+Via Xcode under `<name>` > Targets > `<name> WatchApp` > General > Identity > Display Name
+
 ## Links
 
 * [Apple Watch Programming Guide](https://developer.apple.com/library/prerelease/watchos/documentation/General/Conceptual/WatchKitProgrammingGuide/index.html)
@@ -50,6 +53,7 @@ Remove the need to call Ti.WatchSession.activate()](https://jira.appcelerator.or
 * Document code, also Watch part
 * Test on device
 * Add complication to Watch App sample and demo transferCurrentComplication() 
+* Check what to do with glances (is now empty)
 * Only include one app icon to generate others from
 * Get my hands om some new/changed APIs list
 	* https://wiki.appcelerator.org/display/eng/Integrate+a+WatchKit+App+Built+in+Xcode
