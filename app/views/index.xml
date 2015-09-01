@@ -1,5 +1,5 @@
 <Alloy>
-	<TabGroup>
+	<TabGroup onFocus="onFocus">
 		<Tab title="WatchSession">
 			<Require src="watchsession" platform="ios" />
 		</Tab>

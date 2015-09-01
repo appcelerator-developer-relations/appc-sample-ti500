@@ -9,10 +9,6 @@ var ACTIVITY_EVENTS = ['useractivitywascontinued', 'useractivitywillsave'];
 
 	createUserActivity();
 
-	Ti.App.iOS.addEventListener('handoff', function (e) {
-		log.args('Ti.App.iOS:handoff', e);
-	});
-
 	Ti.App.iOS.addEventListener('continueactivity', function (e) {
 		log.args('Ti.App.iOS:continueactivity', e);
 	});

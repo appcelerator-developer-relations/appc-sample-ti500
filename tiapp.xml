@@ -29,6 +29,9 @@
         <key>NSUserActivityTypes</key>
         <array>
           <string>com.appcelerator.sample.ti500.foo</string>
+          <string>com.appcelerator.sample.ti500.tab.n0</string>
+          <string>com.appcelerator.sample.ti500.tab.n1</string>
+          <string>com.appcelerator.sample.ti500.tab.n2</string>
         </array>
 
         <key>UISupportedInterfaceOrientations~iphone</key>
@@ -89,7 +92,7 @@
     <target device="mobileweb">true</target>
     <target device="windows">true</target>
   </deployment-targets>
-  <sdk-version>5.0.0.v20150829212027</sdk-version>
+  <sdk-version>5.0.0.v20150831202903</sdk-version>
   <plugins>
     <plugin version="1.0">ti.alloy</plugin>
   </plugins>
