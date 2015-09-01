@@ -11,22 +11,20 @@ var activities = [];
 			userInfo: {
 				activeTab: i
 			},
-			eligibleForHandoff: true,
-			eligibleForPublicIndexing: false,
 			eligibleForSearch: true,
-			keywords: [Ti.App.name, 'tabs', $.index.tabs[i].title],
+			eligibleForPublicIndexing: true,
+			eligibleForHandoff: true,
+			keyWords: [Ti.App.name, 'tabs'],
 			needsSave: false,
 			requiredUserInfoKeys: ['activeTab']
 		}));
 	}
 
-	activities[0].becomeCurrent();
-
 	Ti.App.iOS.addEventListener('continueactivity', function (e) {
 		log.args('Ti.App.iOS:continueactivity', e);
 
 		if (e.userInfo.activeTab !== undefined) {
-			// $.index.activeTab = $.index.tabs[e.userInfo.activeTab];
+			$.index.activeTab = $.index.tabs[e.userInfo.activeTab];
 		}
 	});
 
