@@ -19,7 +19,7 @@ function setupListeners() {
 
 		Ti.WatchSession.addEventListener(event, function (e) {
 
-			if (e.type === 'watchSessionReceivedFile') {
+			if (e.type === 'receivefile') {
 				log.argsWithImage('Ti.WatchSession:' + e.type, e, e.data);
 
 			} else {

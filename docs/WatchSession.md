@@ -41,17 +41,10 @@ You need Watch provisioning profiles set in tiapp.xml and the device should run 
 
 ---------------------------------------
 
-## ISSUES
-* [TIMOB-19412
-WatchOS2 template should demonstrate use of WatchConnectivity](https://jira.appcelerator.org/browse/TIMOB-19412)
-* [TIMOB-19424
-iOS: After a few builds, icons and launch images are missing](https://jira.appcelerator.org/browse/TIMOB-19424)
-* [TIMOB-19425
-Remove the need to call Ti.WatchSession.activate()](https://jira.appcelerator.org/browse/TIMOB-19425)
-
 ## TODO
 * Document code, also Watch part
 * Test on device
+	* If dev wildcard works, create ticket to default to that
 * Add complication to Watch App sample and demo transferCurrentComplication() 
 * Check what to do with glances (is now empty)
 * Only include one app icon to generate others from

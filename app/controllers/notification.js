@@ -9,8 +9,6 @@ $.close = close;
 	if (args.image) {
 		$.image.image = args.image;
 
-		$.imageWrap.show();
-
 	} else {
 		$.wrap.remove($.imageWrap);
 	}
@@ -31,6 +29,10 @@ function close() {
 		clearTimeout(timerId);
 
 		timerId = null;
+	}
+
+	if (!isOpen) {
+		return;
 	}
 
 	$.win.close();
