@@ -1,26 +1,24 @@
 <Alloy>
-	<Window title="WatchSession">
+	<Tab title="UserActivity">
+		<Window title="WatchSession">
 
-		<LeftNavButton>
-			<Button onClick="createUserActivity">Replace</Button>
-		</LeftNavButton>
-		<RightNavButton>
-			<Button onClick="toggleCurrent">Become</Button>
-		</RightNavButton>
+			<ScrollView layout="vertical">
 
-		<ScrollView layout="vertical">
-			<Label class="label" onClick="toggleSwitch">eligibleForHandoff</Label>
-			<Switch id="eligibleForHandoff" value="true" />
+				<TextArea id="message" onFocus="onTextAreaFocus" onBlur="onTextAreaBlur" onChange="onTextAreaChange" value="Type something here and continue on another device" />
 
-			<Label class="label" onClick="toggleSwitch">eligibleForPublicIndexing</Label>
-			<Switch id="eligibleForPublicIndexing" value="true" />
+				<Label class="label" onClick="toggleSwitch">eligibleForHandoff</Label>
+				<Switch id="eligibleForHandoff" value="true" />
 
-			<Label class="label" onClick="toggleSwitch">eligibleForSearch</Label>
-			<Switch id="eligibleForSearch" value="true" />
+				<Label class="label" onClick="toggleSwitch">eligibleForPublicIndexing</Label>
+				<Switch id="eligibleForPublicIndexing" value="true" />
 
-			<Label class="label" onClick="toggleSwitch">needsSave</Label>
-			<Switch id="needsSave" value="true" />
-		</ScrollView>
+				<Label class="label" onClick="toggleSwitch">eligibleForSearch</Label>
+				<Switch id="eligibleForSearch" value="true" />
 
-	</Window>
+				<Label class="label" onClick="toggleSwitch">needsSave</Label>
+				<Switch id="needsSave" value="true" />
+			</ScrollView>
+
+		</Window>
+	</Tab>
 </Alloy>

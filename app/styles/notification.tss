@@ -1,5 +1,5 @@
 'Window': {
-	backgroundColor: 'transparent'
+	backgroundColor: '#7000'
 }
 
 '#wrap': {
@@ -13,7 +13,7 @@
 	// which case top and bottom will determine the max height within parent.
 	height: Ti.UI.SIZE,
 
-	backgroundColor: '#C000',
+	backgroundColor: '#000',
 	borderRadius: 5
 }
 

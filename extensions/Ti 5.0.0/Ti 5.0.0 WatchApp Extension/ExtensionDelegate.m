@@ -1,6 +1,6 @@
 //
 //  ExtensionDelegate.m
-//  appc-sample-ti500 WatchApp Extension
+//  Ti 5.0.0 WatchApp Extension
 //
 //  Created by not specified on 8/26/2015.
 //  not specified. All rights reserved.

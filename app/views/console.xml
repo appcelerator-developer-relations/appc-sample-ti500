@@ -1,11 +1,13 @@
 <Alloy>
-	<Window title="Console">
+	<Tab title="Console">
+		<Window title="Console">
 
-		<RightNavButton>
-			<Button onClick="clearHistory" systemButton="TRASH" />
-		</RightNavButton>
+			<RightNavButton>
+				<Button onClick="clearHistory" systemButton="TRASH" />
+			</RightNavButton>
 
-		<TextArea id="log" />
+			<TextArea id="log" />
 
-	</Window>
+		</Window>
+	</Tab>
 </Alloy>

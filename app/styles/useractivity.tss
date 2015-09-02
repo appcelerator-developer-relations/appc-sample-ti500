@@ -1,0 +1,12 @@
+'TextArea': {
+	top: 25,
+	right: 25,
+	bottom: 25,
+	left: 25,
+
+	height: 100,
+
+	borderWidth: 1,
+	borderColor: '#999',
+	borderRadius: 5
+}

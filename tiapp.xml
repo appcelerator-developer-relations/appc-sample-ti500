@@ -56,17 +56,17 @@
       </dict>
     </plist>
     <extensions>
-      <extension projectPath="extensions/appc-sample-ti500/appc-sample-ti500.xcodeproj">
-        <target name="appc-sample-ti500 WatchApp Extension">
+      <extension projectPath="extensions/Ti 5.0.0/Ti 5.0.0.xcodeproj">
+        <target name="Ti 5.0.0 WatchApp Extension">
           <provisioning-profiles>
-            <device>f3d127fb-ee73-41c3-8745-c837b9e9159b</device>
+            <device>fa04ed5e-a4db-4258-bbba-0fffb5ca0f84</device>
             <dist-appstore/>
             <dist-adhoc/>
           </provisioning-profiles>
         </target>
-        <target name="appc-sample-ti500 WatchApp">
+        <target name="Ti 5.0.0 WatchApp">
           <provisioning-profiles>
-            <device>8b45ca45-3db4-4a78-a3e9-9d82e54b8f43</device>
+            <device>fa04ed5e-a4db-4258-bbba-0fffb5ca0f84</device>
             <dist-appstore/>
             <dist-adhoc/>
           </provisioning-profiles>
@@ -92,7 +92,7 @@
     <target device="mobileweb">true</target>
     <target device="windows">true</target>
   </deployment-targets>
-  <sdk-version>5.0.0.v20150831202903</sdk-version>
+  <sdk-version>5.0.0.v20150901105514</sdk-version>
   <plugins>
     <plugin version="1.0">ti.alloy</plugin>
   </plugins>

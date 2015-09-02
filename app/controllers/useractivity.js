@@ -3,15 +3,13 @@ var moment = require('alloy/moment');
 
 var activity;
 
-var ACTIVITY_EVENTS = ['useractivitywascontinued', 'useractivitywillsave'];
-
 (function constructor(args) {
 
 	createUserActivity();
 
-	// Ti.App.iOS.addEventListener('continueactivity', function (e) {
-	// 	log.args('Ti.App.iOS:continueactivity', e);
-	// });
+	Ti.App.iOS.addEventListener('continueactivity', function (e) {
+		log.args('Ti.App.iOS:continueactivity', e);
+	});
 
 })(arguments[0] || {});
 
@@ -19,9 +17,8 @@ function createUserActivity() {
 
 	if (activity) {
 
-		ACTIVITY_EVENTS.forEach(function (event) {
-			activity.removeEventListener(event, logActivityEvent);
-		});
+		activity.removeEventListener('useractivitywillsave', onUseractivitywillsave);
+		activity.removeEventListener('useractivitywascontinued', onUseractivitywascontinued);
 
 		activity.invalidate();
 
@@ -30,43 +27,57 @@ function createUserActivity() {
 
 	activity = Ti.App.iOS.createUserActivity({
 		activityType: 'com.appcelerator.sample.ti500.foo',
-		title: 'Doing Foo',
+		title: 'Writing a message',
 		userInfo: {
-			foo: 'bar'
+			message: $.message.value
 		},
 		eligibleForHandoff: $.eligibleForHandoff.value,
 		eligibleForPublicIndexing: $.eligibleForPublicIndexing.value,
 		eligibleForSearch: $.eligibleForSearch.value,
 		expirationDate: moment().add(3, 'minutes').format("yyyy-MM-dd'T'HH:mm:ss.SSS'+0000"),
-		keywords: ['foo'],
+		keywords: ['message'],
 		needsSave: $.needsSave.value,
-		requiredUserInfoKeys: ['foo'],
-		webpageURL: 'http://googl.com/#q=foo'
+		requiredUserInfoKeys: ['message'],
+		webpageURL: 'http://googl.com/#q=message'
 	});
 
 	// activity.addContentAttributeSet();
 
 	if (!activity.supported) {
-		alert('activity not supported');
-		return;
+		return log.args('activity.supported', activity.supported);
 	}
 
-	ACTIVITY_EVENTS.forEach(function (event) {
-		activity.addEventListener(event, logActivityEvent);
-	});
+	// make current when our tab has focus
+
+	activity.addEventListener('useractivitywillsave', onUseractivitywillsave);
+	activity.addEventListener('useractivitywascontinued', onUseractivitywascontinued);
+}
+
+function onUseractivitywillsave(e) {
+	log.args('Ti.App.iOS.UserActivity:useractivitywillsave', e);
+
+	activity.userInfo = {
+		message: $.mes
+	};
+}
+
+function onUseractivitywascontinued(e) {
+	log.args('Ti.App.iOS.UserActivity:useractivitywascontinued', e);
+
+	// disable textarea?
 }
 
 function toggleCurrent(e) {
 
-	if (e.source.title === 'Become') {
-		activity.becomeCurrent();
+	// if (e.source.title === 'Become') {
+	// 	activity.becomeCurrent();
 
-		e.source.title = 'Resign';
-	} else {
-		activity.resignCurrent();
+	// 	e.source.title = 'Resign';
+	// } else {
+	// 	activity.resignCurrent();
 
-		e.source.title = 'Become';
-	}
+	// 	e.source.title = 'Become';
+	// }
 }
 
 function toggleSwitch(e) {
@@ -75,6 +86,18 @@ function toggleSwitch(e) {
 	$[id].value = !!$[id].value;
 }
 
-function logActivityEvent(e) {
-	log.args('Ti.App.iOS.UserActivity:' + e.type, e);
+function onTextAreaFocus(e) {
+	console.log('focus');
+
+	activity.becomeCurrent();
+}
+
+function onTextAreaBlur(e) {
+	console.log('blur');
+
+	activity.invalidate();
+}
+
+function onTextAreaChange(e) {
+	activity.needsSave = true;
 }

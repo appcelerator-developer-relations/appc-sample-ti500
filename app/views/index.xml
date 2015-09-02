@@ -1,13 +1,7 @@
 <Alloy>
-	<TabGroup onFocus="onFocus">
-		<Tab title="WatchSession">
-			<Require src="watchsession" platform="ios" />
-		</Tab>
-		<Tab title="UserActivity">
-			<Require src="useractivity" platform="ios" />
-		</Tab>
-		<Tab title="Console">
-			<Require src="console" />
-		</Tab>
+	<TabGroup>
+		<Require src="watchsession" platform="ios" />
+		<Require src="useractivity" platform="ios" />		
+		<Require src="console" />
 	</TabGroup>
 </Alloy>

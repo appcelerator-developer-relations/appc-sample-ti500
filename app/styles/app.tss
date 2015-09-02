@@ -21,6 +21,10 @@ overrode the settings with other TSS, XML, or JS settings:
 
 */
 
+'Tab': {
+	icon: '/images/tabIcon.png'
+}
+
 'Window': {
 	backgroundColor: '#fff' // white background instead of default transparent or black
 }
