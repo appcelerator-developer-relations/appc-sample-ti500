@@ -104,9 +104,21 @@ As you can see in the [full sample code](../extensions/Ti 5.0.0/Ti 5.0.0 WatchAp
 
 Under the `#pragma mark watch methods` you'll find the 4 methods that the 4 buttons in the UI call. They demonstrate the 4 methods of  [WCSession](https://developer.apple.com/library/prerelease/ios/documentation/WatchConnectivity/Reference/WCSession_class/index.html#//apple_ref/occ/cl/WCSession) to send a message (simple object to send right away), file, userInfo (simple object, queued to be send in background) or update the applicationContext (simple object, of which only the last one will be delivered when the Titanium App resumes).
 
+	-(IBAction)transferFile:(id)sender
+	{
+	    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"logo" withExtension:@"png"];
+	    [watchSession transferFile:fileURL metadata:[NSDictionary dictionaryWithObjectsAndKeys:@"bar",@"foo",nil]];
+	}
+
 #### Receiving from the Titanium App
 
 Then under `#pragma mark watch delegates` we continue with the delegates that listen to events received from the Titanium App. As you can see there are also events to let us know if a file or userInfo was transferred successfully. All events are logged in the Watch App UI and received images are displayed as well.
+
+	- (void)session:(nonnull WCSession *)session didReceiveFile:(nonnull WCSessionFile *)file
+	{
+	    NSURL *url = [file fileURL];
+	    [self showLog:[NSString stringWithFormat:@"didReceiveFile %@", file.description] withImage:[NSData dataWithContentsOfURL:url] andMode:@"live"];
+	}
 
 ### In the Titanium App
 
@@ -119,6 +131,11 @@ In [app/controllers/watchsession.js](../app/controllers/watchsession.js) you can
 #### Sending to the Watch App
 
 The event listeners for the different buttons in the view demonstrate each of the methods to send files and information to the Watch App. As you can see there are also `cancel*` methods. They can only be tested if your Watch is out of reach or for some other reason data cannot be transferred to the Watch and is queued.
+	
+	Ti.WatchSession.transferFile({
+		fileURL: '/images/logo.png',
+		metaData: createSamplePayload()
+	});
 
 ## Final notes
 
