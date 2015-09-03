@@ -28,10 +28,7 @@
         <!-- All UserActivities need to be defined here -->
         <key>NSUserActivityTypes</key>
         <array>
-          <string>com.appcelerator.sample.ti500.foo</string>
-          <string>com.appcelerator.sample.ti500.tab.n0</string>
-          <string>com.appcelerator.sample.ti500.tab.n1</string>
-          <string>com.appcelerator.sample.ti500.tab.n2</string>
+          <string>com.appcelerator.sample.ti500.message</string>
         </array>
 
         <key>UISupportedInterfaceOrientations~iphone</key>

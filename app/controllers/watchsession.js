@@ -52,7 +52,7 @@ function showProperty(property) {
 
 	var valStr = JSON.stringify(Ti.WatchSession[property]);
 
-	log.args('Ti.WatchSession.' + property, valStr);
+	log.argsSilent('Ti.WatchSession.' + property, valStr);
 
 	updateText(property, valStr);
 }

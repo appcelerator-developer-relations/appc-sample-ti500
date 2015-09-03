@@ -1,22 +1,24 @@
 <Alloy>
-	<Tab title="UserActivity">
-		<Window title="WatchSession">
+	<Tab id="tab" title="UserActivity" onFocus="onTabFocus" onBlur="onTabBlur">
+		<Window title="UserActivity">
 
 			<ScrollView layout="vertical">
 
-				<TextArea id="message" onFocus="onTextAreaFocus" onBlur="onTextAreaBlur" onChange="onTextAreaChange" value="Type something here and continue on another device" />
+				<TextArea id="message" onChange="onTextAreaChange" value="Change something here and then use handoff to continue on another device" />
+				<Label id="status" />
 
 				<Label class="label" onClick="toggleSwitch">eligibleForHandoff</Label>
-				<Switch id="eligibleForHandoff" value="true" />
+				<Switch id="eligibleForHandoff" value="true" onChange="onSwitchChange" />
 
 				<Label class="label" onClick="toggleSwitch">eligibleForPublicIndexing</Label>
-				<Switch id="eligibleForPublicIndexing" value="true" />
+				<Switch id="eligibleForPublicIndexing" value="true" onChange="onSwitchChange" />
 
 				<Label class="label" onClick="toggleSwitch">eligibleForSearch</Label>
-				<Switch id="eligibleForSearch" value="true" />
+				<Switch id="eligibleForSearch" value="true" onChange="onSwitchChange" />
 
 				<Label class="label" onClick="toggleSwitch">needsSave</Label>
-				<Switch id="needsSave" value="true" />
+				<Switch id="needsSave" value="true" onChange="onSwitchChange" />
+
 			</ScrollView>
 
 		</Window>
