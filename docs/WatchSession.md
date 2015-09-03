@@ -151,10 +151,10 @@ The event listeners for the different buttons in the view demonstrate each of th
 
 ## TODO
 * Document code, also Watch part
+* Inform that they need to do the icons themself -> TiCons
 * Add complication to Watch App sample and demo `transferCurrentComplication()`
 * Add glance to the Watch App sample
 * Check if (interactive) notifications still work as the storyboards are now (empty)
 
 ## QUESTIONS
 * Can you add a WatchOS template to an app via Studio?
-* How does it work with (generating) Watch App icons?q

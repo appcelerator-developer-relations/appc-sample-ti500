@@ -15,6 +15,7 @@ Might take a while after invalidating searchable activity to dissapear from sear
 handoff between apps and websites both ways!
 https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/AdoptingHandoff/AdoptingHandoff.html#//apple_ref/doc/uid/TP40014338-CH2-DontLinkElementID_1
 
+
 ## NOTES
 * UserActivity only indexed after you have made it current at least once
 * http://www.slideshare.net/kitasuke/search-apis-in-spotlight-and-safari

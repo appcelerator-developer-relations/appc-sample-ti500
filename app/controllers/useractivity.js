@@ -25,7 +25,7 @@ function createUserActivity() {
 
 		title: 'Writing a message',
 
-		keywords: ['ti500'],
+		keywords: ['foo'],
 
 		userInfo: {
 			message: $.message.value
@@ -45,13 +45,16 @@ function createUserActivity() {
 
 		requiredUserInfoKeys: ['message'],
 		webpageURL: 'http://googl.com/#q=message'
-	};	
+	};
 
 	activity = Ti.App.iOS.createUserActivity(parameters);
 
-	log.argsSilent('Ti.App.iOS.createUserActivity()', parameters);
+	activity.addContentAttributeSet(Ti.App.iOS.createSearchableItemAttributeSet({
+		itemContentType: Ti.App.iOS.UTTYPE_IMAGE,
+		contentDescription: $.message.value
+	}));
 
-	// activity.addContentAttributeSet();
+	log.argsSilent('Ti.App.iOS.createUserActivity()', parameters);
 
 	activity.addEventListener('useractivitywillsave', onUseractivitywillsave);
 	activity.addEventListener('useractivitywascontinued', onUseractivitywascontinued);
