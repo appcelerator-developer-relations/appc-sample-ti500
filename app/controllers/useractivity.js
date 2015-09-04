@@ -12,6 +12,8 @@ var firstBecomeCurrent = false;
 		updateStatus('the continueactivity event was fired after continuing an activity from search or another device. The message should be updated with that of the search index or other device. (see logs for details)');
 
 		$.message.value = e.userInfo.message;
+
+		$.tab.active = true;
 	});
 
 })(arguments[0] || {});
@@ -50,7 +52,7 @@ function createUserActivity() {
 	activity = Ti.App.iOS.createUserActivity(parameters);
 
 	activity.addContentAttributeSet(Ti.App.iOS.createSearchableItemAttributeSet({
-		itemContentType: Ti.App.iOS.UTTYPE_IMAGE,
+		itemContentType: Ti.App.iOS.UTTYPE_PLAIN_TEXT,
 		contentDescription: $.message.value
 	}));
 

@@ -10,12 +10,16 @@ But first, please make yourself familiar with the architecture of watchOS 2 and 
 
 ## Adding a Watch App to your own Titanium App
 
-Use the CLI to add a Xcode project with Obj-C Watch App and Extension to an existing Titanium iOS App:
+Use the CLI to create and add an Xcode project with Obj-C Watch App and Extension to an existing Titanium iOS App:
 
 	cd ~/your-ti-app
 	appc new --type applewatch --template watchos2 --name "Your Watch App"
 	
 The project name is what users will see in the Apple Companion app and Watch. It doesn't need to be the same as the `<name>` of you Titanium app's `tiapp.xml`. You will find the Xcode project under `~/your-ti-app/extensions/Your Watch App` which will also be added to `tiapp.xml` for you. The template includes the code of this sample so you can connect to it from your Titanium app using `Ti.WatchSession` right away.
+
+In Studio you'll find a new *Apple watchOS2 App* section in the Tiapp Editor where you can click *Create New...* to walk through the above steps.
+
+![screenshot](images/watchsession_create.png)
 	
 ## Launching a Titanium App with its Watch App
 Here's how you run you Titanium App and its Watch App.
@@ -26,6 +30,10 @@ To run both your Titanium App and its watchOS 2 app from the CLI:
 	appc run --platform ios --ios-version 9.0 --launch-watch-app
 	
 While you still have Xcode 6 installed and selected, use `--ios-version` (`-I`) to select the iOS 9 SDK found in Xcode 7. The `--launch-watch-app` option will take care of launching the Watch App simulator, pairing it with the iOS Simulator and installing and launching your app.
+
+In Studio, simply select a 9.0 iPhone + Watch Simulator pair:
+
+![screenshot](images/watchsession_simulator.png)
 	
 ### Device
 Deploying to your iPhone and Apple Watch Device takes a little more effort.
@@ -38,9 +46,7 @@ Then open Xcode (*Window > Devices*) to lookup the UDID of your Apple Watch and 
 
 Ultimately, you are probably going to use an Explicit App ID (so you can use *Push Notifications* etc.) and then you'll have to create these (and the related provisioning profiles) for both the Titanium App, the Watch App and Extension. Yes, three of them.. I know. But for this sample and development, just use a wildcard.
 
-#### Deploying
-
-Before we can deploy, you need to set the UUID of the provisioning profile in [tiapp.xml](../tiapp.xml). Run `appc ti info -t ios` to verify you have installed it correctly and then add it for both targets under `ios/extensions`:
+No we only need to set the UUID of the provisioning profiles in [tiapp.xml](../tiapp.xml). Run `appc ti info -t ios` to verify you have installed them correctly, copy their UUID's and then add it to the targets under `ios/extensions`:
 
     <extensions>
       <extension projectPath="extensions/Ti 5.0.0/Ti 5.0.0.xcodeproj">
@@ -60,12 +66,20 @@ Before we can deploy, you need to set the UUID of the provisioning profile in [t
         </target>
       </extension>
     </extensions>
+    
+In Studio the Tiapp Editor has a *Configure Provisioning Profiles...* button to do this:
+
+![screenshot](images/watchsession_provision.png)
 	
+#### Deploying
+
 Then build to device like normal, just make sure that you use the iOS 9 SDK and the same provisioning profile:
 
 	appc run -p ios -I 9.0 --target device --device-id ? --pp-uuid ?
 	
 You can either replace `?` with the exact values found via `appc ti info -t ios` or leave them there and unless you've set `appc ti config set cli.prompt false` the CLI will let you select from the found devices (`-C`) and profiles (`-P`).
+
+In Studio the wizard to *Run on iOS Device* will let you select the *SDK version* and *Provisioning Profile*.
 	
 ## Communicating between the Titanium and Watch App
 Now that we know how to run the sample, let's see how it works.
@@ -140,6 +154,7 @@ The event listeners for the different buttons in the view demonstrate each of th
 ## Final notes
 
 * You can change the Watch App's name later in Xcode via *Ti 5.0.0 > Targets > Ti 5.0.0 WatchApp > General > Identity > Display Name*.
+* You have to manage the icons for the Watch App yourself via the Xcode project's [asset catalog](../extensions/Ti 5.0.0/Ti 5.0.0 WatchApp/Assets.xcassets/AppIcon.appiconset). You can use the [TiCons CLI]() or [Website](http://ticons.fokkezb.nl/) to generate these.
 * Currently our templates are in Objective-C but it will work similar in Swift. We might add Swift templates later ([TIMOB-19455](https://jira.appcelerator.org/browse/TIMOB-19455)).
 
 ## Links
@@ -151,10 +166,6 @@ The event listeners for the different buttons in the view demonstrate each of th
 
 ## TODO
 * Document code, also Watch part
-* Inform that they need to do the icons themself -> TiCons
 * Add complication to Watch App sample and demo `transferCurrentComplication()`
 * Add glance to the Watch App sample
 * Check if (interactive) notifications still work as the storyboards are now (empty)
-
-## QUESTIONS
-* Can you add a WatchOS template to an app via Studio?
