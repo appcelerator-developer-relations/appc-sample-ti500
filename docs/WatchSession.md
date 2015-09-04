@@ -155,19 +155,15 @@ The event listeners for the different buttons in the view demonstrate each of th
 
 ## Final notes
 
+There's a lot more to do about Apple Watch apps. Checkout the *Links* section for more information after I close of with some final notes:
+
 * You can change the Watch App's name later in Xcode via *Ti 5.0.0 > Targets > Ti 5.0.0 WatchApp > General > Identity > Display Name*.
 * You have to manage the icons for the Watch App yourself via the Xcode project's [asset catalog](../extensions/Ti 5.0.0/Ti 5.0.0 WatchApp/Assets.xcassets/AppIcon.appiconset). You can use the [TiCons CLI]() or [Website](http://ticons.fokkezb.nl/) to generate these.
+* Via the Storyboard for the Watch App you can also control scenes to display custom information to notifications. If you are already using [interactive notifications](https://github.com/appcelerator-developer-relations/appc-sample-notifywatch) then be aware that actions with `..ACTIVATION_MODE_FOREGROUND` will now open the Apple Watch App instead of the iOS app. The [Apple Watch Notifications guide](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/BasicSupport.html#//apple_ref/doc/uid/TP40014969-CH18-SW1) explains how to handle both.
+* In the same way, you can also include a [Glance](https://developer.apple.com/library/prerelease/ios/documentation/General/Conceptual/WatchKitProgrammingGuide/ImplementingaGlance.html#//apple_ref/doc/uid/TP40014969-CH5-SW1) and [Complication](https://developer.apple.com/library/prerelease/watchos/documentation/General/Conceptual/AppleWatch2TransitionGuide/DesigningaComplication.html) scene and controller. Follow the linked guides from Apple for more information. You can communicate with the Titanium app through the Watch Connectivity framework in the same way. This sample does not include this.
 * Currently our templates are in Objective-C but it will work similar in Swift. We might add Swift templates later ([TIMOB-19455](https://jira.appcelerator.org/browse/TIMOB-19455)).
 
 ## Links
 
 * [Apple Watch Programming Guide](https://developer.apple.com/library/prerelease/watchos/documentation/General/Conceptual/WatchKitProgrammingGuide/index.html)
 * [Apple Watch Human Interface Guidelines](https://developer.apple.com/watch/human-interface-guidelines/)
-
----------------------------------------
-
-## TODO
-* Document code, also Watch part
-* Add complication to Watch App sample and demo `transferCurrentComplication()`
-* Add glance to the Watch App sample
-* Check if (interactive) notifications still work as the storyboards are now (empty)
