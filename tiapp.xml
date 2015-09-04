@@ -83,11 +83,11 @@
   </mobileweb>
   <modules/>
   <deployment-targets>
-    <target device="android">true</target>
-    <target device="ipad">true</target>
+    <target device="android">false</target>
+    <target device="ipad">false</target>
     <target device="iphone">true</target>
-    <target device="mobileweb">true</target>
-    <target device="windows">true</target>
+    <target device="mobileweb">false</target>
+    <target device="windows">false</target>
   </deployment-targets>
   <sdk-version>5.0.0.v20150902095518</sdk-version>
   <plugins>

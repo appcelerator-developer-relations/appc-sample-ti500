@@ -1,7 +1,6 @@
 <Alloy>
 	<TabGroup>
-		<Require src="watchsession" platform="ios" />
-		<Require src="useractivity" platform="ios" />		
+		<Require src="watchsession" />
 		<Require src="console" />
 	</TabGroup>
 </Alloy>
