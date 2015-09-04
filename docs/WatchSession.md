@@ -1,6 +1,8 @@
 # WatchSession
 *Communicating between a Titanium App and a Xcode watchOS 2 App.*
 
+![screenshots](images/watchsession_screenshots.png)
+
 I will walk you through adding and launching a Watch App for your own apps and then explain the sample.
 
 ## How it works
