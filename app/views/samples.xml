@@ -1,0 +1,14 @@
+<Alloy>
+	<Tab id="tab" title="Samples">
+		<Window title="Samples">
+
+			<ListView onItemclick="onListViewItemclick">
+				<ListSection>
+					<ListItem itemId="attributedstrings" title="Attributed Strings" />
+					<ListItem itemId="themes" title="Alloy Themes" />
+				</ListSection>
+			</ListView>
+
+		</Window>
+	</Tab>
+</Alloy>

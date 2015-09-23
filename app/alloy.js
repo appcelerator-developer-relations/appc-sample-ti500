@@ -11,13 +11,3 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
-
-/**
- * Always wrap code in alloy.js in a self-executing function or any variable
- * you define here will polute the global scope. If you really want to make
- * a variable global set it as a property of global, which is a reference to
- * "this", which is the (global) scope of this CommonJS module.
- */
-(function(global) {
-
-})(this);

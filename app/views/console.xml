@@ -2,9 +2,7 @@
 	<Tab title="Console">
 		<Window title="Console">
 
-			<RightNavButton>
-				<Button onClick="clearHistory" systemButton="TRASH" />
-			</RightNavButton>
+			<RightNavButton systemButton="TRASH" onClick="clearLogs" />
 
 			<TextArea id="log" />
 

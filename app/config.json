@@ -1,6 +1,7 @@
 {
 	"global": {
-		"brandPrimary": "#CD1625"
+		"brandPrimary": "#CD1625",
+		"theme": "foo"
 	},
 	"env:development": {},
 	"env:test": {},

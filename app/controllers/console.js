@@ -1,29 +1,25 @@
 var log = require('log');
 
 /**
- * Self-executing function containing all code that is executed when an instance
- * of this controller is created, apart from dependencies and variables declared
- * above. Just for readability, much like a class constructor.
+ * I wrap code that executes on creation in a self-executing function just to
+ * keep it organised, not to protect global scope like it would in alloy.js
  */
 (function constructor(args) {
 
 	// Show logs from before this controller was created
-	showHistory();
+	showLogs();
 
-	// Fired in alloy.js when new logs are added
-	log.on('change', showHistory);
+	// Listen to changes to the logs
+	log.on('change', showLogs);
 
 })(arguments[0] || {});
 
-/**
- * Shows the logs collected in a global var by alloy.js
- */
-function showHistory() {
+function showLogs() {
 	$.log.value = log.history;
 }
 
-function clearHistory() {
+function clearLogs() {
 	log.history = '';
 
-	showHistory();
+	showLogs();
 }

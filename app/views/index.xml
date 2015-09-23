@@ -1,6 +1,6 @@
 <Alloy>
 	<TabGroup>
-		<Require src="watchsession" />
+		<Require src="samples" />
 		<Require src="console" />
 	</TabGroup>
 </Alloy>

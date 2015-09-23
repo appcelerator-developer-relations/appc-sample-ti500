@@ -1,0 +1,15 @@
+<Alloy>
+	<Window title="Alloy Themes">
+
+		<ScrollView>
+			<View class="vbox">
+
+				<Label textid="hello" />
+
+				<ImageView platform="android" image="Ti.App.Android.R.drawable.thumb" />
+
+			</View>
+		</ScrollView>
+
+	</Window>
+</Alloy>

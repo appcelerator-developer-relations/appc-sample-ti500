@@ -1,0 +1,70 @@
+".asLabel[platform=ios]" : {
+	attributes: [
+		{
+			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
+			value: Ti.UI.ATTRIBUTE_LINE_BREAK_BY_CHAR_WRAPPING,
+			range: [0, 100]
+		},
+		{
+			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
+			value: Ti.UI.ATTRIBUTE_LINE_BREAK_BY_CLIPPING,
+			range: [100, 100]
+		},
+		{
+			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
+			value: Ti.UI.ATTRIBUTE_LINE_BREAK_BY_TRUNCATING_HEAD,
+			range: [200, 100]
+		},
+		{
+			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
+			value: Ti.UI.ATTRIBUTE_LINE_BREAK_BY_TRUNCATING_MIDDLE,
+			range: [300, 100]
+		},
+		{
+			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
+			value: Ti.UI.ATTRIBUTE_LINE_BREAK_BY_TRUNCATING_TAIL,
+			range: [400, 100]
+		},
+		{
+			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
+			value: Ti.UI.ATTRIBUTE_LINE_BREAK_BY_WORD_WRAPPING,
+			range: [500, 100]
+		}
+	]
+}
+
+".asTextField": {
+	attributes: [
+		{
+			type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR,
+			value: Alloy.CFG.brandPrimary,
+			range: [11, 9]
+		}
+	]
+}
+
+".ahTextField": {
+	attributes: [
+		{
+			type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR,
+			value: Alloy.CFG.brandPrimary,
+			range: [8, 18]
+		}
+	]
+}
+
+"TextField": {
+	top: 20,
+	right: 0,
+	left: 0,
+
+	height: 30,
+	paddingLeft: 5,
+	paddingRight: 5,
+
+	clearOnEdit: true,
+
+	borderWidth: 1,
+	borderColor: '#999',
+	borderRadius: 5
+}

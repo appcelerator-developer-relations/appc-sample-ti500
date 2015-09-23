@@ -38,39 +38,17 @@ overrode the settings with other TSS, XML, or JS settings:
 	}
 }
 
-'Label': {
-	font: {
-		fontSize: 17
-	}
-}
-
-'Button': {
-	top: 10,
-	font: {
-		fontSize: 17
-	}
-}
-
-'.label': {
-	top: 10,
-	font: {
-		fontWeight: 'bold'
-	}
-}
-
-'.value': {
-	font: {
-		fontFamily: 'CourierNewPSMT'
-	},
-	color: '#999',
-
-	// As soon as the text is long enough to make the (by default) centered
-	// Label as wide as it parent and text wraps to multiple lines, we need to
-	// center the text itself as well.
-	textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER
-}
-
 'ScrollView': {
 	contentWidth: Ti.UI.FILE,
 	contentHeight: Ti.UI.SIZE
+}
+
+'.vbox': {
+	layout: 'vertical',
+	top: 20,
+	right: 20,
+	bottom: 20,
+	left: 20,
+
+	height: Ti.UI.SIZE
 }

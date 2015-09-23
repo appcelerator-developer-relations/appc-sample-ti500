@@ -1,0 +1,19 @@
+<Alloy>
+	<Window title="Attributed Strings">
+
+		<ScrollView>
+			<View class="vbox">
+
+				<!--
+				FIXME: https://jira.appcelerator.org/browse/ALOY-1306
+				There can be no whitespace between <Label> and <AttributedString>
+				-->
+				<Label><AttributedString class="asLabel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.</AttributedString></Label>
+
+				<TextField><AttributedString class="asTextField">Focus this TextField to clear and see..</AttributedString><AttributedHintText class="ahTextField">... the AttributedHintText</AttributedHintText></TextField>
+
+			</View>
+		</ScrollView>
+
+	</Window>
+</Alloy>
