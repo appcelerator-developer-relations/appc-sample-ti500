@@ -1,0 +1,45 @@
+<Alloy>
+	<Window id="win" title="Android">
+
+		<!-- Android: Uses the Window's activity to configure the ActionBar -->
+		<Menu platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow" />
+
+		<ScrollView>
+			<View class="vbox">
+
+				<!--
+				Demonstrates the new Titanium Android themes.
+				See the controller for how we hack into Alloy's data binding to set this on the theme-view/controller
+				-->
+				<Button onClick="openWindowWithTheme" class="tpad">Theme.AppCompat.NoTitleBar</Button>
+				<Button onClick="openWindowWithTheme" class="tpad">Theme.AppCompat.NoTitleBar.Fullscreen</Button>
+
+				<!--
+				Demonstrates the new elevation-property
+				Move the slide to change the value (see controller)
+				--->
+				<View id="elvView" elevation="25">
+					<Slider min="0" max="50" value="25" onChange="onSliderChange"/>
+				</View>
+
+				<!-- Demonstrates the new largeIcon property for notifications -->
+				<Button onClick="notify" class="tpad">Notification with largeIcon</Button>
+
+				<!-- Demonstrates the new selectionOpens property for Picker -->
+				<Picker id="picker" class="tpad" selectionOpens="true">
+				    <PickerColumn>
+				        <PickerRow title="Bananas"/>
+				        <PickerRow title="Strawberries"/>
+				        <PickerRow title="Mangos"/>
+				        <PickerRow title="Grapes"/>
+				    </PickerColumn>
+				</Picker>
+
+				<!-- Tap the button to select Strawberries and see the Picker open -->
+				<Button onClick="setSelectedRow" class="tpad">setSelectedRow(0, 2)</Button>
+
+			</View>
+		</ScrollView>
+
+	</Window>
+</Alloy>

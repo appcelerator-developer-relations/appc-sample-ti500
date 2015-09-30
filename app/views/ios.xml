@@ -1,0 +1,20 @@
+<Alloy>
+	<Window id="win" title="iOS">
+
+		<ScrollView>
+			<View class="vbox">
+
+				<!-- Demonstrates the new iOS-support for indicatorColor -->
+				<ActivityIndicator class="tpad" color="red" indicatorColor="green" message="indicatorColor" visible="true" />
+
+				<!-- Demonstrates the new iPad-only and iOS 9 only undo/redo actions -->
+				<TextField platform="ios" formFactor="tablet" class="tpad" value="showUndoRedoActions = true (default)" />
+
+				<!-- Demonstrates disabling the above actions via the new showUndoRedoActions -->
+				<TextField platform="ios" formFactor="tablet" class="tpad" showUndoRedoActions="false" value="showUndoRedoActions = false" />
+
+			</View>
+		</ScrollView>
+
+	</Window>
+</Alloy>

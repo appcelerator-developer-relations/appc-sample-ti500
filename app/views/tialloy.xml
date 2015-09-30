@@ -1,0 +1,35 @@
+<Alloy>
+	<Window id="win" title="Alloy" onClose="onWindowClose">
+
+		<!-- Android: Uses the Window's activity to configure the ActionBar -->
+		<Menu platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow" />
+
+		<ScrollView>
+			<View class="vbox">
+
+				<!-- Displays a themed i18n string from app/themes/foo/i18n/en/strings.xml -->
+				<Label textid="hello" />
+
+				<!-- Compiles to require('themes').createLabel() which loads from app/themes/foo/lib/themes.js -->
+				<Label module="themes" class="tpad" />
+
+				<!-- Displays a themed drawable from app/themes/foo/platform/anroid/res/drawable-xhdpi/thumbsup.jpg -->
+				<ImageView platform="android" image="Ti.App.Android.R.drawable.thumbsup" class="tpad" />
+
+				<!-- Displays value set via app/config.json which compiles to Alloy.CFG -->
+				<Label text="Alloy.CFG.foo" class="tpad" />
+
+				<!-- Displays value set to Alloy.Globals in app/alloy.js -->
+				<Label text="Alloy.Globals.foo" class="tpad" />
+
+				<!-- Demonstrates new Alloy event management methods. We add a third listener in the controller -->
+				<Button id="firstButton" onSingletap="myListener" onDoubletap="myListener" class="tpad">Singletap, doubletap and longpress me</Button>
+
+				<!-- Removes all (three) listeners on the above button in one call (see controller) -->
+				<Button onClick="removeMyListener" class="tpad">Remove all listeners to above button</Button>
+
+			</View>
+		</ScrollView>
+
+	</Window>
+</Alloy>

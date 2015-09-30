@@ -11,36 +11,33 @@ For example, the following would apply to all labels, windows,
 and text fields (depending on platform) in your app unless you
 overrode the settings with other TSS, XML, or JS settings:
 
-'Label[platform=android,windows]': {
-	color: '#000' // all platforms except Android and Windows default to black
-}
-
-'TextField[platform=android]': {
-	height: Ti.UI.SIZE
-}
-
 */
 
-'Tab': {
-	icon: '/images/tabIcon.png'
-}
-
-'Window': {
-	backgroundColor: '#fff' // white background instead of default transparent or black
-}
-
 'Window[platform=ios]': {
+
+	// Navigation bar
 	barColor: Alloy.CFG.brandPrimary,
 	navTintColor: '#FFF',
 	translucent: false,
 	titleAttributes: {
 		color: '#FFF'
-	}
+	},
+
+	// Defaults to transparent
+	backgroundColor: '#FFF'
+}
+
+'TextField[platform=ios]': {
+	width: Ti.UI.FILL,
+	
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED
 }
 
 'ScrollView': {
 	contentWidth: Ti.UI.FILE,
-	contentHeight: Ti.UI.SIZE
+	contentHeight: Ti.UI.SIZE,
+
+	scrollType: 'vertical'
 }
 
 '.vbox': {
@@ -51,4 +48,8 @@ overrode the settings with other TSS, XML, or JS settings:
 	left: 20,
 
 	height: Ti.UI.SIZE
+}
+
+'.tpad': {
+	top: 20
 }

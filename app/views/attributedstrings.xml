@@ -1,16 +1,22 @@
 <Alloy>
-	<Window title="Attributed Strings">
+	<Window id="win" title="Attributed Strings">
+
+		<!-- Android: Uses the Window's activity to configure the ActionBar -->
+		<Menu platform="android" displayHomeAsUp="true" onHomeIconItemSelected="closeWindow" />
 
 		<ScrollView>
 			<View class="vbox">
 
 				<!--
 				FIXME: https://jira.appcelerator.org/browse/ALOY-1306
-				There can be no whitespace between <Label> and <AttributedString>
+				There can be no whitespace between parent and <AttributedString>
 				-->
-				<Label><AttributedString class="asLabel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.</AttributedString></Label>
 
-				<TextField><AttributedString class="asTextField">Focus this TextField to clear and see..</AttributedString><AttributedHintText class="ahTextField">... the AttributedHintText</AttributedHintText></TextField>
+				<!-- iOS: Demonstrates <AttributedString> and ATTRIBUTE_LINE_BREAK values (see TSS) -->
+				<Label platform="ios"><AttributedString class="asLabel">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit. Nam venenatis vel orci sit amet facilisis.</AttributedString></Label>
+
+				<!-- Demonstrates <AttributedString> for TextField -->
+				<TextField class="tpad"><AttributedString class="asTextField">Clear this TextField to see..</AttributedString><AttributedHintText class="ahTextField">... the AttributedHintText</AttributedHintText></TextField>
 
 			</View>
 		</ScrollView>

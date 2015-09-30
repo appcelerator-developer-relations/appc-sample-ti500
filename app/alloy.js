@@ -11,3 +11,5 @@
 // object. For example:
 //
 // Alloy.Globals.someGlobalFunction = function(){};
+
+Alloy.Globals.foo = 'Hello from: Alloy.Globals.foo';

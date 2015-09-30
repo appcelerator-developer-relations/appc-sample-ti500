@@ -1,0 +1,9 @@
+<Alloy>
+
+	<!-- See the android controller to see how we hack into Alloy's data binding to set the creation-only property -->
+	<Window id="win" theme="{theme}">
+
+		<Button onClick="closeWindow">Use back or tap to close</Button>
+
+	</Window>
+</Alloy>

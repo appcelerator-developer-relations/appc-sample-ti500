@@ -1,7 +1,8 @@
 {
 	"global": {
 		"brandPrimary": "#CD1625",
-		"theme": "foo"
+		"theme": "foo",
+		"foo": "Hello from: Alloy.CFG.foo"
 	},
 	"env:development": {},
 	"env:test": {},

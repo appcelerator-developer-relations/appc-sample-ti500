@@ -1,4 +1,4 @@
-".asLabel[platform=ios]" : {
+'.asLabel[platform=ios]' : {
 	attributes: [
 		{
 			type: Ti.UI.ATTRIBUTE_LINE_BREAK,
@@ -33,7 +33,7 @@
 	]
 }
 
-".asTextField": {
+'.asTextField': {
 	attributes: [
 		{
 			type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR,
@@ -43,28 +43,17 @@
 	]
 }
 
-".ahTextField": {
+'.ahTextField': {
 	attributes: [
+		{
+			type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR,
+			value: '#999',
+			range: [0, 8]
+		},
 		{
 			type: Ti.UI.ATTRIBUTE_FOREGROUND_COLOR,
 			value: Alloy.CFG.brandPrimary,
 			range: [8, 18]
 		}
 	]
-}
-
-"TextField": {
-	top: 20,
-	right: 0,
-	left: 0,
-
-	height: 30,
-	paddingLeft: 5,
-	paddingRight: 5,
-
-	clearOnEdit: true,
-
-	borderWidth: 1,
-	borderColor: '#999',
-	borderRadius: 5
 }
