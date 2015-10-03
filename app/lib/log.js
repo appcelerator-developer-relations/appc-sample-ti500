@@ -7,16 +7,16 @@ Log.args = function () {
 
 	// Stringify non-strings
 	args = args.map(function (arg) {
-		return (typeof arg === 'string') ? arg : JSON.stringify(arg, OS_ANDROID ? function(key, value) {
+		return (typeof arg === 'string') ? arg : JSON.stringify(arg, OS_IOS ? null : function(key, value) {
 
-			// Android: Stringify on Ti proxies fails, so just show apiName with optional ID and class
+			// Just show apiName with optional ID and class
 			if (typeof value === 'object' && value.apiName) {
 				return value.apiName + (value.id ? '#' + value.id : '') + (value.class ? '.' + value.class : '');
 			}
 
 			return value;
 
-		} : null, 2);
+		}, 2);
 	});
 
 	var message = args.join(' ');

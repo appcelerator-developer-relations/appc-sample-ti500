@@ -1,5 +1,7 @@
 # Titanium 5.0.0 Sample App
 
+![screenshots](docs/screenshots.png)
+
 This sample app demonstrates as much of the new APIs introduced in Titanium 5.0. Since this release is a big one, we've created separate sample apps for:
 
 * WatchOS 2 Connectivity: [WatchSession Sample App](https://github.com/appcelerator-developer-relations/appc-sample-watchos2)
@@ -18,7 +20,7 @@ To support [App Thinning](https://developer.apple.com/library/prerelease/ios/doc
 * You can no longer use launch images within the app itself [like this](http://www.tidev.io/2015/01/06/how-to-re-use-the-launch-image-in-the-app/).
 * [Localized Splash Screens](http://docs.appcelerator.com/platform/latest/#!/guide/Icons_and_Splash_Screens-section-29004897_IconsandSplashScreens-LocalizedSplashScreens) still work, but App Thinning for these images will not because Launch Images do not support localized Asset Catalogs.
 
-For more information: [iOS graphic asset requirements and options](http://docs.appcelerator.com/platform/latest/#!/guide/Icons_and_Splash_Screens-section-29004897_IconsandSplashScreens-iOSgraphicassetrequirementsandoptions)
+For more information see the [iOS graphic asset requirements and options](http://docs.appcelerator.com/platform/latest/#!/guide/Icons_and_Splash_Screens-section-29004897_IconsandSplashScreens-iOSgraphicassetrequirementsandoptions) guide. We will add support for `DefaultIcon.png` to the other platforms soon. Bye bye [TiCons](http://ticons.fokkezb.nl) ;)
 
 ## Attributed Strings
 The [Attributed Strings](app/controllers/attributedstrings.xml) sample demonstrate the use of the new Alloy `<AttributedString>` proxy property. You can use this as a child element of `<Label>`, `<TextArea>` and `<TextField>`. As you can see the last one also supports `<AttributedHintText>`.
@@ -49,6 +51,8 @@ The [iOS](app/views/ios.xml) sample demonstrates a few new API's:
 * After MobileWeb and Windows Phone, iOS now also supports [Ti.UI.ActivityIndicator.indicatorColor](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.ActivityIndicator-property-indicatorColor) to set the color of the indicator.
 * For iPad-only, use [showUndoRedoActions](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.TextArea-property-showUndoRedoActions) on TextFields and TextAreas to determine if iOS 9 should show the undo/redo and copy/paste actions in the toolbar above the soft keyboard. Be aware of [TIMOB-19614](https://jira.appcelerator.org/browse/TIMOB-19614) when toggling this property.
 
+![actions](docs/actions.png)
+
 ## Android Themes
 This release introduces new predefined Titanium themes for Android to hide the action bar and optionally the status bar:
 
@@ -73,29 +77,17 @@ Since Titanium 3.3 iOS has [viewShadowOffset](http://docs.appcelerator.com/platf
 ### Sample
 The [android](app/views/android.xml) sample demonstrates this new property. Use the slider to change the elevation value. As the [TSS](app/styles/android.tss) shows you need to make sure your view has some space around it or else the parent will clip the elevation shadow. The view also needs a `backgroundColor` since a transparent view wouldn't cast much shadow.
 
+![elevation](docs/elevation.png)
+
 ## Other Android APIs
-This release supports adding a large icon to be shown in the content area of a notification. As the [android](app/controllers/android.js) sample demonstrates simply set the [Ti.Android.Notification.largeIcon](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.Android.Notification-property-largeIcon) property to a system or app drawable.
+This release supports adding a large icon to be shown in the content area of a notification. As the [android](app/controllers/android.js) sample demonstrates simply set the [Ti.Android.Notification.largeIcon](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.Android.Notification-property-largeIcon) property to a system or app drawable, like the big fast forward icon I use:
+
+![elevation](docs/largeIcon.png)
 
 Also new is [Ti.UI.Picker.selectionOpens](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI.Picker-property-selectionOpens) which determines whether calling the method `setSelectedRow()` also opens the picker. Tap the button under the picker to see it in action.
 
-## Other noticeable changes
-Not demonstrated in the sample, but definitely worth mentioning:
-
-### Alloy CLI
-Thanks to Kosuke Isobe Alloy now has some of the new commands Kosuke introduced in [alloy-smelter](https://www.npmjs.com/package/alloy-smelter):
-
-	[appc] alloy copy <source> <destination>
-		copy the controller, view, and style files from <source> to <destination>
-
-	[appc] alloy move <source> <destination>
-		move the controller, view, and style files from <source> to <destination>
-
-	[appc] alloy remove <source>
-		remove the controller, view, and style files at <source>
-
-Also new is the option to let Alloy [Compile a Specific View-Controller](http://docs.appcelerator.com/platform/latest/#!/guide/Alloy_Tasks_with_the_CLI-section-37536785_AlloyTaskswiththeCLI-CompilingaSpecificView-Controller). A feature that tools like [LiveView](https://jira.appcelerator.org/browse/TIMOB-18597) can use to speed up the compile time during hot code reloads.
-
-	[appc] alloy compile --config platform=ios,file=app/controller/index.js
+## CLIs
+Not demonstrated in the sample, but definitely worth mentioning are some new features in the different CLIs:
 
 ### Appcelerator CLI
 Also new on the CLI front are two command for the Appcelerator CLI. The `info` commands combines the results from `appc ti info` with information about Appcelerator CLI Installer and Core Package. The other allows you to switch to another org without needing to logout and in again. Pass `--org-id <id>` if you know the ID. We're [working](https://jira.appcelerator.org/browse/TISTUD-7504) on making this easier in Studio as well.
@@ -106,7 +98,22 @@ Also new on the CLI front are two command for the Appcelerator CLI. The `info` c
 		switch logged in org
 
 ### Titanium CLI
-If you clean a project in Studio or via CLI using `[appc] ti clean` it used to only clean the `build` folder, but now it also cleans the `Resources` folder if it's an Alloy project. Whenever you run into an issue, always first clean to rule out any bugs introduced by the incremental builds we use to speed up your development workflow.
+If you clean a project in Studio or via CLI using `[appc] ti clean` it used to only clean the `build` folder, but now it also cleans the `Resources` folder if it's an Alloy project. Whenever you run into an issue, always first clean to rule out any errors introduced by the incremental builds we do to speed up your development workflow.
+
+### Alloy CLI
+Thanks to a PR by Kosuke Isobe Alloy now has some of the new commands Kosuke introduced in [alloy-smelter](https://www.npmjs.com/package/alloy-smelter):
+
+	[appc] alloy copy <source> <destination>
+		copy the controller, view, and style files from <source> to <destination>
+
+	[appc] alloy move <source> <destination>
+		move the controller, view, and style files from <source> to <destination>
+
+	[appc] alloy remove <source>
+		remove the controller, view, and style files at <source>
+
+## Windows
+Alloy now supports `<CommandBar>` for Windows
 
 -----------------
 

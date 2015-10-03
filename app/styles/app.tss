@@ -21,10 +21,21 @@ overrode the settings with other TSS, XML, or JS settings:
 	translucent: false,
 	titleAttributes: {
 		color: '#FFF'
-	},
+	}
+}
 
-	// Defaults to transparent
+'Window[platform=windows,ios]': {
 	backgroundColor: '#FFF'
+}
+
+'Label[platform=windows]': {
+	color: '#000'
+}
+
+'ListView[platform=windows]': {
+
+	// FIXME: Because ListItem height is full screen height by default
+	height: Ti.UI.SIZE
 }
 
 'TextField[platform=ios]': {

@@ -7,7 +7,7 @@ var log = require('log');
 (function constructor(args) {
 
 	// Add another event listener to the first button
-	$.addListener($.firstButton, 'longpress', myListener);
+	// $.addListener($.firstButton, 'longpress', myListener);
 
 	// Log all listeners added via XML and $.addListener()
 	log.args('$.getListener()', $.getListener());

@@ -9,7 +9,7 @@
 	    <Window title="Samples">
 	        <ListView onItemclick="onListViewItemclick">
 	            <ListSection>
-	                <ListItem itemId="attributedstrings" title="Attributed Strings" />
+	                <ListItem platform="ios,android" itemId="attributedstrings" title="Attributed Strings" />
 	                <ListItem itemId="tialloy" title="Alloy" />
 	                <ListItem platform="ios" itemId="ios" title="iOS" />
 	                <ListItem platform="android" itemId="android" title="Android" />
