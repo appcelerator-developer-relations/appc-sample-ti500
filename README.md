@@ -2,13 +2,13 @@
 
 ![screenshots](docs/screenshots.png)
 
-This sample app demonstrates as much of the new APIs introduced in Titanium 5.0. Since this release is a big one, we've created separate sample apps for:
+This sample app demonstrates many of the new APIs introduced in Titanium 5.0. Since this release is a big one, we've created separate sample apps for:
 
 * WatchOS 2 Connectivity: [WatchSession Sample App](https://github.com/appcelerator-developer-relations/appc-sample-watchos2)
 * iOS App Search: [App Search Sample App](https://github.com/appcelerator-developer-relations/appc-sample-appsearch)
 * iOS Handoff: [Handoff Sample App](https://github.com/appcelerator-developer-relations/appc-sample-handoff)
 
-We're working on a sample to demonstrate [Windows Runtime Direct API Access](http://docs.appcelerator.com/platform/latest/#!/guide/Windows_Runtime_Direct_API_Access) as well as the [Hyperloop Module for iOS](http://labs.appcelerator.com/project/55f74a9f421c44837717716b/Hyperloop-Module) now available via Appcelerator Labs.
+We're working on another sample to demonstrate [Windows Runtime Direct API Access](http://docs.appcelerator.com/platform/latest/#!/guide/Windows_Runtime_Direct_API_Access) as well as the [Hyperloop Module for iOS](http://labs.appcelerator.com/project/55f74a9f421c44837717716b/Hyperloop-Module) now available via Appcelerator Labs.
 
 For a lists of all the changes see the [release notes](http://docs.appcelerator.com/platform/release-notes/?version=5.0.0.GA) and linked JIRA filters.
 
@@ -112,82 +112,5 @@ Thanks to a PR by Kosuke Isobe Alloy now has some of the new commands Kosuke int
 	[appc] alloy remove <source>
 		remove the controller, view, and style files at <source>
 
-## Windows
-Alloy now supports `<CommandBar>` for Windows
-
------------------
-
-## Other APIs
-
-### [Alloy](https://github.com/appcelerator/alloy/releases)
-
-* CommandBar
-
-------------------
-
-## Windows
-
-<table>
-  <tr><td>Titanium.Media.AudioPlayer.change</td><td>event</td><td><p>Fired when the state of the playback changes. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.AudioPlayer.complete</td><td>event</td><td><p>Fired when the audio has finished playing. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.AudioPlayer.error</td><td>event</td><td><p>Fired when there's an error. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.Sound.change</td><td>event</td><td><p>Fired when the state of the playback changes. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.Sound.complete</td><td>event</td><td><p>Fired when the audio has finished playing. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.Sound.error</td><td>event</td><td><p>Fired when an error occurs while playing the audio. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.VideoPlayer.complete</td><td>event</td><td><p>Fired when movie playback ends or a user exits playback. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.Media.VideoPlayer.error</td><td>event</td><td><p>Fired when movie playback encounters an error. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.Clipboard</td><td>object</td><td><p>A module used for accessing clipboard data. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.canCancelEvents</td><td>property</td><td><p>Determines whether this scroll view can cancel subview touches in order to scroll instead. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.contentOffset</td><td>property</td><td><p>X and Y coordinates to which to reposition the top-left point of the scrollable region.
- (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.decelerationRate</td><td>property</td><td><p>The deceleration rate of the ScrollView. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.disableBounce</td><td>property</td><td><p>Determines whether scroll bounce of the scrollable region is enabled. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.horizontalBounce</td><td>property</td><td><p>Determines whether horizontal scroll bounce of the scrollable region is enabled. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.maxZoomScale</td><td>property</td><td><p>Maximum scaling factor of the scrollable region and its content. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.minZoomScale</td><td>property</td><td><p>Minimum scaling factor of the scrollable region and its content. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.overScrollMode</td><td>property</td><td><p>Determines the behavior when the user overscolls the view. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.scrollIndicatorStyle</td><td>property</td><td><p>Style of the scrollbar. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.scrollType</td><td>property</td><td><p>Limits the direction of the scrollable region, overriding the deduced setting. Set to 
-<code>horizontal</code> or <code>vertical</code>.
- (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.scrollsToTop</td><td>property</td><td><p>Controls whether the scroll-to-top gesture is effective. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.setZoomScale</td><td>method</td><td><p>Sets the value of the Titanium.UI.ScrollView.zoomScale property. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.verticalBounce</td><td>property</td><td><p>Determines whether vertical scroll bounce of the scrollable region is enabled. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.ScrollView.zoomScale</td><td>property</td><td><p>Scaling factor of the scroll view's content. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.Switch.color</td><td>property</td><td><p>Color to use for switch text, as a color name or hex triplet. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.Switch.enabled</td><td>property</td><td><p>Determines whether the switch is enabled. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.Switch.titleOff</td><td>property</td><td><p>Text to display on the switch in its "off" state, when the toggle button style is in use. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.Switch.titleOn</td><td>property</td><td><p>Text to display on the switch in its "on" state, when the toggle button style is in use. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.View.backgroundImage</td><td>property</td><td><p>Background image for the view, specified as a local file path or URL. (Added support for Windows Phone.)</p></td></tr>
-
-  <tr><td>Titanium.UI.View.zIndex</td><td>property</td><td><p>Z-index stack order position, relative to other sibling views. (Added support for Windows Phone.)</p></td></tr>
-
-<tr>
-</table>
+### Windows
+Alloy now supports `<CommandBar>` for Windows. We've also added support for Windows to a lot of API's of `Ti.Media`, `Ti.Clipboard`, `Ti.UI.ScrollView`, `Ti.UI.Switch` and `Ti.UI.View`.
