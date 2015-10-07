@@ -112,5 +112,5 @@ Thanks to a PR by Kosuke Isobe Alloy now has some of the new commands Kosuke int
 	[appc] alloy remove <source>
 		remove the controller, view, and style files at <source>
 
-### Windows
-Alloy now supports `<CommandBar>` for Windows. We've also added support for Windows to a lot of API's of `Ti.Media`, `Ti.Clipboard`, `Ti.UI.ScrollView`, `Ti.UI.Switch` and `Ti.UI.View`.
+## Windows
+Alloy now supports `<CommandBar>` for Windows. We've also added support for Windows to a lot of API's of `Ti.Media`, `Ti.Clipboard`, `Ti.UI.ScrollView`, `Ti.UI.Switch` and `Ti.UI.View`. Since you'll know most of these APIs from iOS and Android I haven't include them in the sample.
