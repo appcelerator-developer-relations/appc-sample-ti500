@@ -23,7 +23,7 @@ To support [App Thinning](https://developer.apple.com/library/prerelease/ios/doc
 For more information see the [iOS graphic asset requirements and options](http://docs.appcelerator.com/platform/latest/#!/guide/Icons_and_Splash_Screens-section-29004897_IconsandSplashScreens-iOSgraphicassetrequirementsandoptions) guide. We will add support for `DefaultIcon.png` to the other platforms soon. Bye bye [TiCons](http://ticons.fokkezb.nl) ;)
 
 ## Attributed Strings
-The [Attributed Strings](app/controllers/attributedstrings.xml) sample demonstrate the use of the new Alloy `<AttributedString>` proxy property. You can use this as a child element of `<Label>`, `<TextArea>` and `<TextField>`. As you can see the last one also supports `<AttributedHintText>`.
+The [Attributed Strings](app/views/attributedstrings.xml) sample demonstrate the use of the new Alloy `<AttributedString>` proxy property. You can use this as a child element of `<Label>`, `<TextArea>` and `<TextField>`. As you can see the last one also supports `<AttributedHintText>`.
 
 For iOS only we've also added support for the attribute type [`ATTRIBUTE_LINE_BREAK`](http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI-property-ATTRIBUTE_LINE_BREAK). Use this with one of the `Ti.UI.ATTRIBUTE_LINE_BREAK_BY_*` constants found in the sample's [TSS](app/styles/attributedstrings.tss) to determine how lines break.
 
@@ -31,7 +31,7 @@ For iOS only we've also added support for the attribute type [`ATTRIBUTE_LINE_BR
 Apart from `tiapp.xml` you can now theme [almost everything](https://jira.appcelerator.org/browse/ALOY-1307). We've added support for `i18n`, `lib` and `platform` folders. If you have a white-label app you can now easily brand strings, libraries and Android icons, splash screens and themes.
 
 ### Sample
-The [Alloy](app/controllers/tialloy.xml) sample demonstrates all three new theming features. The last one for Android only, where it should show the [thumbs up](app/themes/foo/platform/android/res/drawable-xhdpi/thumbsup.jpg) image of the theme, not the default [thumbs down](platform/android/res/drawable-xhdpi/thumbsup.jpg).
+The [Alloy](app/views/tialloy.xml) sample demonstrates all three new theming features. The last one for Android only, where it should show the [thumbs up](app/themes/foo/platform/android/res/drawable-xhdpi/thumbsup.jpg) image of the theme, not the default [thumbs down](platform/android/res/drawable-xhdpi/thumbsup.jpg).
 
 ## Alloy Event Management
 Alloy controllers have 3 new APIs to manage event listeners for Titanium view proxies. All events you [add via XML](http://docs.appcelerator.com/platform/latest/#!/guide/Alloy_XML_Markup-section-35621528_AlloyXMLMarkup-EventHandling) now use [`$.addListener(proxy, type, callback)`](http://docs.appcelerator.com/platform/latest/#!/api/Alloy.Controller-method-addListener) which is also available to you in the controller. Use [`$.getListener([proxy], [type])`](http://docs.appcelerator.com/platform/latest/#!/api/Alloy.Controller-method-getListener) to get all callbacks or only for a specific proxy and/or event type. Finally [`$.removeListener([proxy], [type], [callback])`](http://docs.appcelerator.com/platform/latest/#!/api/Alloy.Controller-method-removeListener) can be used to remove all or specific event listeners. Just like [`$.destroy()`](http://docs.appcelerator.com/platform/latest/#!/api/Alloy.Controller-method-destroy) you can call this when the controller's UI is "closed" to avoid memory leaks, e.g. by calling it in a Window `close` event.
